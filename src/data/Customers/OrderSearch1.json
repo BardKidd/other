@@ -1,0 +1,63 @@
+{
+  "Status": 200,
+  "ErrorMessage": null,
+  "Data": {
+    "OrderId": 2040,
+    "OrderStoreDetails": [
+      {
+        "ProductDtos": [
+          {
+            "OrderStoreProductId": 2063,
+            "SerialNumber": 1,
+            "OrderStoreId": 2053,
+            "ItemNo": "11020112Z           ",
+            "ItemName": "褐抑定藻寡醣加強配方-500粒(員購)",
+            "Specification": "550mg/粒 500粒/罐",
+            "OrderQTY": 1,
+            "DepositQTY": 0,
+            "FreeQty": 0,
+            "Free": false,
+            "WhseID": "KS01001   ",
+            "UnitPrice": 0,
+            "Subtotal": 0,
+            "UOM": "罐",
+            "PartialDelivery": false,
+            "PartialDeliveryQTY": 1,
+            "IsPending": true,
+            "PendingTo": null,
+            "CreateTime": "2022-02-24T15:50:42.793",
+            "CreateUser": "db2a1b45-534d-4803-adae-c3c4f155ecb5",
+            "UpdateTime": "2022-02-24T15:50:53.483",
+            "UpdateUser": "db2a1b45-534d-4803-adae-c3c4f155ecb5"
+          }
+        ],
+        "OrderStoreId": 2053,
+        "OrderId": 2040,
+        "CustomerId": "11B0074002",
+        "CustomerName": "廣益藥師",
+        "ProductCount": 1,
+        "TotalQty": 1,
+        "DeliveryDate": "2022-02-28T00:00:00",
+        "DeliveryTimeCode": "3",
+        "ReceiveName": "hj7h87h87h",
+        "ReceiveContact": "02-2254-7482",
+        "ReceiveAddress": "新北市板橋區自由路21號/廣益藥師藥局",
+        "Payment": null,
+        "WithTaxID": null,
+        "TaxID": null,
+        "InvoiceTitle": "廣益藥師藥局",
+        "InvoiceAttached": null,
+        "InvoiceName": null,
+        "InvoiceContact": null,
+        "InvoiceAddress": null,
+        "Charge": 30,
+        "Fare": 0,
+        "BranchRemark": "",
+        "CreateTime": "2022-02-24T15:50:42.74",
+        "CreateUser": "db2a1b45-534d-4803-adae-c3c4f155ecb5",
+        "UpdateTime": "2022-02-24T15:50:53.45",
+        "UpdateUser": "db2a1b45-534d-4803-adae-c3c4f155ecb5"
+      }
+    ]
+  }
+}

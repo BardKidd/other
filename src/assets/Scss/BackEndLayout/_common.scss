@@ -1,0 +1,155 @@
+@import "./color";
+.commonInput {
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  background-color: #f2f4fd;
+  flex: 1;
+}
+
+// Vue-Bootstrap4-table 套件樣式
+.form-control {
+  display: none;
+}
+
+// 日期套件搜尋樣式
+.commonSearchDate {
+  .mx-input {
+    height: 36px;
+    border: none;
+  }
+}
+
+// 掛單樣式
+.pendingOrder {
+  background-color: #ff0000;
+  color: #fff;
+  border-radius: 25px;
+  padding: 3px 5px;
+  font-size: 0.9rem;
+  height: 1.8rem;
+}
+
+// select 套件樣式
+.v-select {
+  min-width: 10rem; // 要給預設寬度
+  background-color: #fff;
+  height: 37px;
+  // line-height: 1.8;
+  border-radius: 5px;
+  > .vs__dropdown-toggle {
+    border: none;
+    > .vs__selected-options {
+      // span 框
+      > .vs__selected {
+        line-height: 1.8;
+      }
+      // input 框
+      > .vs__search {
+        line-height: 1.8;
+        &:focus {
+          line-height: 1.8;
+        }
+      }
+    }
+  }
+}
+
+// 分割線樣式
+.line {
+  margin-bottom: 20px;
+  border-bottom: 3px dashed $color_primary;
+}
+
+// radio button
+.switchBox {
+  display: flex;
+
+  &_content {
+    background-color: #fff;
+    padding: 1px;
+    border-radius: 3px;
+    flex: 1;
+    display: flex;
+
+    &_box {
+      flex: 1;
+      cursor: pointer;
+      margin-bottom: 0;
+      &_text {
+        background-color: #fff;
+        padding: 5px;
+        border-radius: 5px;
+        display: block;
+        text-align: center;
+      }
+
+      &_input {
+        display: none;
+        &:checked {
+          & + span {
+            background-color: $color_primary;
+            color: #fff;
+            font-weight: bold;
+          }
+        }
+        &:disabled {
+          cursor: not-allowed;
+        }
+        &:checked:disabled {
+          & + span {
+            background-color: lighten($color_primary, 50%);
+          }
+        }
+      }
+    }
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    position: relative;
+    top: 3px;
+    & + label {
+      margin-right: 10px;
+    }
+  }
+}
+
+/* td 過長加這個 */
+.tdShort {
+  white-space: normal !important; // 處理空白字元
+  word-break: break-all !important; // 填滿換行
+}
+
+/* el-table cell */
+.el-table {
+  th {
+    > .cell {
+      // 去掉 padding，讓名稱與 sort btn 同一層
+      padding-right: 0 !important;
+      padding-left: 0 !important;
+    }
+  }
+}
+
+/* LR Line*/
+.LRLine {
+  position: relative;
+  text-align: center;
+  &:after,
+  &:before {
+    width: 50%;
+    height: 2px;
+    content: "";
+    position: absolute;
+    top: 50%;
+    background-color: black;
+  }
+  &:after {
+    right: -60%;
+  }
+  &:before {
+    left: -60%;
+  }
+}

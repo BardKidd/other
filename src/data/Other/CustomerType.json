@@ -1,0 +1,14 @@
+{
+  "Status": 200,
+  "ErrorMessage": null,
+  "Data": [
+    {
+      "TypeCode": "1",
+      "Type": "自然人"
+    },
+    {
+      "TypeCode": "2",
+      "Type": "法人"
+    }
+  ]
+}

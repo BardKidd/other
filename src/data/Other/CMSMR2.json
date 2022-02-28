@@ -1,0 +1,180 @@
+{
+  "Status": 200,
+  "ErrorMessage": null,
+  "Data": [
+    {
+      "TypeID": "2",
+      "CodeID": "01    ",
+      "ShtName": "有機店",
+      "FullName": "有機店"
+    },
+    {
+      "TypeID": "2",
+      "CodeID": "02    ",
+      "ShtName": "藥局",
+      "FullName": "藥局"
+    },
+    {
+      "TypeID": "2",
+      "CodeID": "03    ",
+      "ShtName": "大連鎖藥局",
+      "FullName": "大連鎖藥局"
+    },
+    {
+      "TypeID": "2",
+      "CodeID": "04    ",
+      "ShtName": "醫院/診所",
+      "FullName": "醫院/診所"
+    },
+    {
+      "TypeID": "2",
+      "CodeID": "05    ",
+      "ShtName": "醫療器材",
+      "FullName": "醫療器材"
+    },
+    {
+      "TypeID": "2",
+      "CodeID": "06    ",
+      "ShtName": "醫師/護個",
+      "FullName": "醫師/醫護個人"
+    },
+    {
+      "TypeID": "2",
+      "CodeID": "07    ",
+      "ShtName": "一般消費者",
+      "FullName": "一般消費者"
+    },
+    {
+      "TypeID": "2",
+      "CodeID": "08    ",
+      "ShtName": "股東",
+      "FullName": "股東"
+    },
+    {
+      "TypeID": "2",
+      "CodeID": "09    ",
+      "ShtName": "職員",
+      "FullName": "職員"
+    },
+    {
+      "TypeID": "2",
+      "CodeID": "10    ",
+      "ShtName": "關係企業",
+      "FullName": "關係企業"
+    },
+    {
+      "TypeID": "2",
+      "CodeID": "11    ",
+      "ShtName": "個人代銷",
+      "FullName": "個人代銷"
+    },
+    {
+      "TypeID": "2",
+      "CodeID": "12    ",
+      "ShtName": "動物診所",
+      "FullName": "動物診所"
+    },
+    {
+      "TypeID": "2",
+      "CodeID": "13    ",
+      "ShtName": "網路經銷商",
+      "FullName": "網路經銷商"
+    },
+    {
+      "TypeID": "2",
+      "CodeID": "14    ",
+      "ShtName": "國外經銷商",
+      "FullName": "國外經銷商"
+    },
+    {
+      "TypeID": "2",
+      "CodeID": "15    ",
+      "ShtName": "海大/行政",
+      "FullName": "海大/行政院"
+    },
+    {
+      "TypeID": "2",
+      "CodeID": "16    ",
+      "ShtName": "寵物店",
+      "FullName": "寵物店"
+    },
+    {
+      "TypeID": "2",
+      "CodeID": "19    ",
+      "ShtName": "養殖",
+      "FullName": "養殖"
+    },
+    {
+      "TypeID": "2",
+      "CodeID": "20    ",
+      "ShtName": "ASP整廠",
+      "FullName": "ASP整廠"
+    },
+    {
+      "TypeID": "2",
+      "CodeID": "21    ",
+      "ShtName": "官網訂",
+      "FullName": "官網訂購消費者"
+    },
+    {
+      "TypeID": "2",
+      "CodeID": "22    ",
+      "ShtName": "貴賓老友",
+      "FullName": "貴賓及老友會"
+    },
+    {
+      "TypeID": "2",
+      "CodeID": "23    ",
+      "ShtName": "飯店業者",
+      "FullName": "飯店業者"
+    },
+    {
+      "TypeID": "2",
+      "CodeID": "24    ",
+      "ShtName": "餐廳",
+      "FullName": "餐廳"
+    },
+    {
+      "TypeID": "2",
+      "CodeID": "25    ",
+      "ShtName": "節目經銷",
+      "FullName": "節目經銷商"
+    },
+    {
+      "TypeID": "2",
+      "CodeID": "26    ",
+      "ShtName": "百貨超市",
+      "FullName": "百貨超市零售"
+    },
+    {
+      "TypeID": "2",
+      "CodeID": "27    ",
+      "ShtName": "鴿友",
+      "FullName": "鴿友"
+    },
+    {
+      "TypeID": "2",
+      "CodeID": "28    ",
+      "ShtName": "鴿店",
+      "FullName": "鴿店"
+    },
+    {
+      "TypeID": "2",
+      "CodeID": "98    ",
+      "ShtName": "動保其他",
+      "FullName": "動保其他"
+    },
+    {
+      "TypeID": "2",
+      "CodeID": "99    ",
+      "ShtName": "其他",
+      "FullName": "其他"
+    },
+    {
+      "TypeID": "2",
+      "CodeID": "ZZ    ",
+      "ShtName": "下架店家",
+      "FullName": "下架店家"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "Status": 200,
+  "ErrorMessage": null,
+  "Data": [
+    {
+      "TypeId": "1",
+      "TypeName": "通路"
+    },
+    {
+      "TypeId": "2",
+      "TypeName": "型態"
+    },
+    {
+      "TypeId": "3",
+      "TypeName": "地區"
+    },
+    {
+      "TypeId": "4",
+      "TypeName": "國家"
+    },
+    {
+      "TypeId": "5",
+      "TypeName": "路線"
+    },
+    {
+      "TypeId": "6",
+      "TypeName": "其他"
+    },
+    {
+      "TypeId": "7",
+      "TypeName": "抽成"
+    },
+    {
+      "TypeId": "8",
+      "TypeName": "活動"
+    },
+    {
+      "TypeId": "9",
+      "TypeName": "廠商"
+    }
+  ]
+}

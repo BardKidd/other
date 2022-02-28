@@ -1,0 +1,164 @@
+{
+  "Status": 200,
+  "ErrorMessage": null,
+  "Data": [
+    {
+      "Category_Code": "2",
+      "Category_Name": "產品系列",
+      "Code": "AA    ",
+      "Name": "HIQ_Health",
+      "ProductCategories": [
+        {
+          "Category_Name": "產品分類",
+          "Code": "AA_001",
+          "Name": "褐抑定"
+        },
+        {
+          "Category_Name": "產品分類",
+          "Code": "AA_002",
+          "Name": "褐抑定PLUS"
+        },
+        {
+          "Category_Name": "產品分類",
+          "Code": "AA_003",
+          "Name": "普保健"
+        },
+        {
+          "Category_Name": "產品分類",
+          "Code": "AA_004",
+          "Name": "藻防護"
+        },
+        {
+          "Category_Name": "產品分類",
+          "Code": "AA_005",
+          "Name": "藻盛利"
+        },
+        {
+          "Category_Name": "產品分類",
+          "Code": "AA_006",
+          "Name": "鱸魚精"
+        },
+        {
+          "Category_Name": "產品分類",
+          "Code": "AA_007",
+          "Name": "藻久甘"
+        },
+        {
+          "Category_Name": "產品分類",
+          "Code": "AA_008",
+          "Name": "藻衡糖"
+        },
+        {
+          "Category_Name": "產品分類",
+          "Code": "AA_009",
+          "Name": "藻衡糖PLUS"
+        },
+        {
+          "Category_Name": "產品分類",
+          "Code": "AA_010",
+          "Name": "麩醯胺酸"
+        }
+      ]
+    },
+    {
+      "Category_Code": "2",
+      "Category_Name": "產品系列",
+      "Code": "BB    ",
+      "Name": "HIQ_Pets",
+      "ProductCategories": [
+        {
+          "Category_Name": "產品分類",
+          "Code": "BB_001",
+          "Name": "藻康留"
+        },
+        {
+          "Category_Name": "產品分類",
+          "Code": "BB_002",
+          "Name": "藻心沛"
+        },
+        {
+          "Category_Name": "產品分類",
+          "Code": "BB_003",
+          "Name": "藻膚好"
+        },
+        {
+          "Category_Name": "產品分類",
+          "Code": "BB_004",
+          "Name": "藻護盛"
+        },
+        {
+          "Category_Name": "產品分類",
+          "Code": "BB_005",
+          "Name": "藻飛速"
+        },
+        {
+          "Category_Name": "產品分類",
+          "Code": "BB_006",
+          "Name": "寵物機能餅"
+        }
+      ]
+    },
+    {
+      "Category_Code": "2",
+      "Category_Name": "產品系列",
+      "Code": "CC    ",
+      "Name": "HIQ_Fresh",
+      "ProductCategories": []
+    },
+    {
+      "Category_Code": "2",
+      "Category_Name": "產品系列",
+      "Code": "DD    ",
+      "Name": "HIQ_Beauty",
+      "ProductCategories": [
+        {
+          "Category_Name": "產品分類",
+          "Code": "DD_001",
+          "Name": "面膜類"
+        },
+        {
+          "Category_Name": "產品分類",
+          "Code": "DD_002",
+          "Name": "凝膠類"
+        },
+        {
+          "Category_Name": "產品分類",
+          "Code": "DD_003",
+          "Name": "精華液類"
+        },
+        {
+          "Category_Name": "產品分類",
+          "Code": "DD_004",
+          "Name": "保濕露類"
+        },
+        {
+          "Category_Name": "產品分類",
+          "Code": "DD_005",
+          "Name": "慕斯類"
+        },
+        {
+          "Category_Name": "產品分類",
+          "Code": "DD_006",
+          "Name": "機能霜類"
+        },
+        {
+          "Category_Name": "產品分類",
+          "Code": "DD_007",
+          "Name": "修護乳類"
+        },
+        {
+          "Category_Name": "產品分類",
+          "Code": "DD_008",
+          "Name": "隔離乳類"
+        }
+      ]
+    },
+    {
+      "Category_Code": "2",
+      "Category_Name": "產品系列",
+      "Code": "EE    ",
+      "Name": "HIQ_Creati",
+      "ProductCategories": []
+    }
+  ]
+}

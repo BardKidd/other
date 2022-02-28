@@ -1,0 +1,48 @@
+@import "./color";
+/* 帶背景的分頁按鈕修改顏色 */
+.el-pagination.is-background {
+  background-color: #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  .el-pager {
+    li.active {
+      color: #fff;
+      cursor: default;
+    }
+    li:not(.disabled).active,
+    li:not(.disabled).active:hover {
+      background-color: $color_primary;
+      color: #fff;
+    }
+    li:hover,
+    li:not(.disabled):hover {
+      background-color: lighten($color_primary, 50%);
+      color: #fff;
+    }
+  }
+}
+
+/* xx 頁框的顏色 */
+.el-select {
+  .el-input.is-focus {
+    .el-input__inner {
+      border-color: $color_primary;
+      &:hover,
+      &:focus,
+      &:active {
+        border-color: $color_primary;
+      }
+    }
+  }
+}
+.el-pagination__sizes {
+  .el-input {
+    .el-input__inner:hover {
+      border-color: $color_primary;
+    }
+  }
+}
+.el-select-dropdown__item.selected {
+  background-color: $color_primary;
+  color: #fff;
+}

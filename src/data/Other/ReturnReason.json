@@ -1,0 +1,21 @@
+{
+  "Status": 200,
+  "ErrorMessage": null,
+  "Data": [
+    {
+      "ReasonCode": "01        ",
+      "ReasonDesc": "效期6個月",
+      "Memo": "111"
+    },
+    {
+      "ReasonCode": "02        ",
+      "ReasonDesc": "外包裝破損",
+      "Memo": ""
+    },
+    {
+      "ReasonCode": "03        ",
+      "ReasonDesc": "品項錯誤",
+      "Memo": ""
+    }
+  ]
+}

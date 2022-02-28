@@ -1,0 +1,69 @@
+{
+  "Status": 200,
+  "ErrorMessage": null,
+  "Data": [
+    {
+      "WhseID": "KS01001   ",
+      "WhseName": "棚康良品倉",
+      "Type": "1",
+      "IsInventoryWarehouse": true,
+      "Memo": "",
+      "OwnDeptID": "21800",
+      "OwnDeptName": "管倉儲物流"
+    },
+    {
+      "WhseID": "KS01005   ",
+      "WhseName": "棚康年底倉",
+      "Type": "1",
+      "IsInventoryWarehouse": true,
+      "Memo": "",
+      "OwnDeptID": "23000",
+      "OwnDeptName": "人醫保健部"
+    },
+    {
+      "WhseID": "KS01007   ",
+      "WhseName": "行銷通路倉",
+      "Type": "1",
+      "IsInventoryWarehouse": true,
+      "Memo": "",
+      "OwnDeptID": "23900",
+      "OwnDeptName": "人行銷處"
+    },
+    {
+      "WhseID": "KS01008   ",
+      "WhseName": "整合行銷倉",
+      "Type": "1",
+      "IsInventoryWarehouse": true,
+      "Memo": "",
+      "OwnDeptID": "23900",
+      "OwnDeptName": "人行銷處"
+    },
+    {
+      "WhseID": "KS01010   ",
+      "WhseName": "人醫保健倉",
+      "Type": "1",
+      "IsInventoryWarehouse": true,
+      "Memo": "",
+      "OwnDeptID": "23000",
+      "OwnDeptName": "人醫保健部"
+    },
+    {
+      "WhseID": "KS01011   ",
+      "WhseName": "統一夢公園",
+      "Type": "1",
+      "IsInventoryWarehouse": true,
+      "Memo": "",
+      "OwnDeptID": "23100",
+      "OwnDeptName": "人藥局通路"
+    },
+    {
+      "WhseID": "KS11003   ",
+      "WhseName": "棚康非存貨",
+      "Type": "2",
+      "IsInventoryWarehouse": false,
+      "Memo": "",
+      "OwnDeptID": "21800",
+      "OwnDeptName": "管倉儲物流"
+    }
+  ]
+}

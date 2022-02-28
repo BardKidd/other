@@ -1,0 +1,2226 @@
+{
+  "Status": 200,
+  "ErrorMessage": null,
+  "Data": [
+    {
+      "TypeID": "1",
+      "CodeID": "100   ",
+      "ShtName": "北市中正區",
+      "FullName": "北市中正區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "103   ",
+      "ShtName": "北市大同區",
+      "FullName": "北市大同區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "104   ",
+      "ShtName": "北市中山區",
+      "FullName": "北市中山區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "105   ",
+      "ShtName": "北市松山區",
+      "FullName": "北市松山區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "106   ",
+      "ShtName": "北市大安區",
+      "FullName": "北市大安區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "108   ",
+      "ShtName": "北市萬華區",
+      "FullName": "北市萬華區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "110   ",
+      "ShtName": "北市信義區",
+      "FullName": "北市信義區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "111   ",
+      "ShtName": "北市士林區",
+      "FullName": "北市士林區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "112   ",
+      "ShtName": "北市北投區",
+      "FullName": "北市北投區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "114   ",
+      "ShtName": "北市內湖區",
+      "FullName": "北市內湖區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "115   ",
+      "ShtName": "北市南港區",
+      "FullName": "北市南港區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "116   ",
+      "ShtName": "北市文山區",
+      "FullName": "北市文山區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "121   ",
+      "ShtName": "直接消費",
+      "FullName": "直接消費者"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "122   ",
+      "ShtName": "餐飲飯店",
+      "FullName": "餐飲飯店"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "123   ",
+      "ShtName": "網路媒體",
+      "FullName": "網路/媒體"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "124   ",
+      "ShtName": "實體店面",
+      "FullName": "實體店面"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "125   ",
+      "ShtName": "專案客戶",
+      "FullName": "專案客戶"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "126   ",
+      "ShtName": "公益",
+      "FullName": "公益"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "127   ",
+      "ShtName": "公關",
+      "FullName": "公關"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "128   ",
+      "ShtName": "魚販",
+      "FullName": "魚販"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "200   ",
+      "ShtName": "基市仁愛區",
+      "FullName": "基市仁愛區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "201   ",
+      "ShtName": "基市信義區",
+      "FullName": "基市信義區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "202   ",
+      "ShtName": "基市中正區",
+      "FullName": "基市中正區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "203   ",
+      "ShtName": "基市中山區",
+      "FullName": "基市中山區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "204   ",
+      "ShtName": "基市安樂區",
+      "FullName": "基市安樂區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "205   ",
+      "ShtName": "基市暖暖區",
+      "FullName": "基市暖暖區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "206   ",
+      "ShtName": "基市七堵區",
+      "FullName": "基市七堵區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "207   ",
+      "ShtName": "新北萬里區",
+      "FullName": "新北萬里區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "208   ",
+      "ShtName": "新北金山區",
+      "FullName": "新北金山區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "220   ",
+      "ShtName": "新北板橋區",
+      "FullName": "新北板橋區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "221   ",
+      "ShtName": "新北汐止區",
+      "FullName": "新北汐止區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "222   ",
+      "ShtName": "新北深坑區",
+      "FullName": "新北深坑區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "223   ",
+      "ShtName": "新北石碇區",
+      "FullName": "新北石碇區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "224   ",
+      "ShtName": "新北瑞芳區",
+      "FullName": "新北瑞芳區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "226   ",
+      "ShtName": "新北平溪區",
+      "FullName": "新北平溪區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "227   ",
+      "ShtName": "新北雙溪區",
+      "FullName": "新北雙溪區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "228   ",
+      "ShtName": "新北貢寮區",
+      "FullName": "新北貢寮區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "231   ",
+      "ShtName": "新北新店區",
+      "FullName": "新北新店區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "232   ",
+      "ShtName": "新北坪林區",
+      "FullName": "新北坪林區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "233   ",
+      "ShtName": "新北烏來區",
+      "FullName": "新北烏來區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "234   ",
+      "ShtName": "新北永和區",
+      "FullName": "新北永和區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "235   ",
+      "ShtName": "新北中和區",
+      "FullName": "新北中和區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "236   ",
+      "ShtName": "新北土城區",
+      "FullName": "新北土城區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "237   ",
+      "ShtName": "新北三峽區",
+      "FullName": "新北三峽區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "238   ",
+      "ShtName": "新北樹林區",
+      "FullName": "新北樹林區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "239   ",
+      "ShtName": "新北鶯歌區",
+      "FullName": "新北鶯歌區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "241   ",
+      "ShtName": "新北三重區",
+      "FullName": "新北三重區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "242   ",
+      "ShtName": "新北新莊區",
+      "FullName": "新北新莊區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "243   ",
+      "ShtName": "新北泰山區",
+      "FullName": "新北泰山區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "244   ",
+      "ShtName": "新北林口區",
+      "FullName": "新北林口區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "247   ",
+      "ShtName": "新北蘆洲區",
+      "FullName": "新北蘆洲區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "248   ",
+      "ShtName": "新北五股區",
+      "FullName": "新北五股區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "249   ",
+      "ShtName": "新北八里區",
+      "FullName": "新北八里區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "251   ",
+      "ShtName": "新北淡水區",
+      "FullName": "新北淡水區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "252   ",
+      "ShtName": "新北三芝區",
+      "FullName": "新北三芝區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "253   ",
+      "ShtName": "新北石門區",
+      "FullName": "新北石門區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "260   ",
+      "ShtName": "宜縣宜蘭市",
+      "FullName": "宜縣宜蘭市"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "261   ",
+      "ShtName": "宜縣頭城鎮",
+      "FullName": "宜縣頭城鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "262   ",
+      "ShtName": "宜縣礁溪鄉",
+      "FullName": "宜縣礁溪鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "263   ",
+      "ShtName": "宜縣壯圍鄉",
+      "FullName": "宜縣壯圍鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "264   ",
+      "ShtName": "宜縣員山鄉",
+      "FullName": "宜縣員山鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "265   ",
+      "ShtName": "宜縣羅東鎮",
+      "FullName": "宜縣羅東鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "266   ",
+      "ShtName": "宜縣三星鄉",
+      "FullName": "宜縣三星鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "267   ",
+      "ShtName": "宜縣大同鄉",
+      "FullName": "宜縣大同鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "268   ",
+      "ShtName": "宜縣五結鄉",
+      "FullName": "宜縣五結鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "269   ",
+      "ShtName": "宜縣冬山鄉",
+      "FullName": "宜縣冬山鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "270   ",
+      "ShtName": "宜縣蘇澳鎮",
+      "FullName": "宜縣蘇澳鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "272   ",
+      "ShtName": "宜縣南澳鄉",
+      "FullName": "宜縣南澳鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "300   ",
+      "ShtName": "竹市東區",
+      "FullName": "竹市東區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "302   ",
+      "ShtName": "竹縣竹北市",
+      "FullName": "竹縣竹北市"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "303   ",
+      "ShtName": "竹縣湖口鄉",
+      "FullName": "竹縣湖口鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "304   ",
+      "ShtName": "竹縣新豐鄉",
+      "FullName": "竹縣新豐鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "305   ",
+      "ShtName": "竹縣新埔鄉",
+      "FullName": "竹縣新埔鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "306   ",
+      "ShtName": "竹縣關西鄉",
+      "FullName": "竹縣關西鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "307   ",
+      "ShtName": "竹縣芎林鎮",
+      "FullName": "竹縣芎林鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "308   ",
+      "ShtName": "竹縣寶山鄉",
+      "FullName": "竹縣寶山鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "310   ",
+      "ShtName": "竹縣竹東鎮",
+      "FullName": "竹縣竹東鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "311   ",
+      "ShtName": "竹縣五峰鄉",
+      "FullName": "竹縣五峰鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "312   ",
+      "ShtName": "竹縣橫山鄉",
+      "FullName": "竹縣橫山鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "313   ",
+      "ShtName": "竹縣尖石鄉",
+      "FullName": "竹縣尖石鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "314   ",
+      "ShtName": "竹縣北埔鎮",
+      "FullName": "竹縣北埔鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "315   ",
+      "ShtName": "竹縣峨眉鎮",
+      "FullName": "竹縣峨眉鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "320   ",
+      "ShtName": "桃市中壢區",
+      "FullName": "桃市中壢區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "324   ",
+      "ShtName": "桃市平鎮區",
+      "FullName": "桃市平鎮區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "325   ",
+      "ShtName": "桃市龍潭區",
+      "FullName": "桃市龍潭區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "326   ",
+      "ShtName": "桃市楊梅區",
+      "FullName": "桃市楊梅區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "327   ",
+      "ShtName": "桃市新屋區",
+      "FullName": "桃市新屋區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "328   ",
+      "ShtName": "桃市觀音區",
+      "FullName": "桃市觀音區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "330   ",
+      "ShtName": "桃市桃園區",
+      "FullName": "桃市桃園區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "333   ",
+      "ShtName": "桃市龜山區",
+      "FullName": "桃市龜山區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "334   ",
+      "ShtName": "桃市八德區",
+      "FullName": "桃市八德區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "335   ",
+      "ShtName": "桃市大溪區",
+      "FullName": "桃市大溪區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "336   ",
+      "ShtName": "桃市復興區",
+      "FullName": "桃市復興區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "337   ",
+      "ShtName": "桃市大園區",
+      "FullName": "桃市大園區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "338   ",
+      "ShtName": "桃市蘆竹區",
+      "FullName": "桃市蘆竹區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "350   ",
+      "ShtName": "苗縣竹南鎮",
+      "FullName": "苗縣竹南鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "351   ",
+      "ShtName": "苗縣頭份鎮",
+      "FullName": "苗縣頭份鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "352   ",
+      "ShtName": "苗縣三灣鄉",
+      "FullName": "苗縣三灣鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "353   ",
+      "ShtName": "苗縣南庄鄉",
+      "FullName": "苗縣南庄鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "354   ",
+      "ShtName": "苗縣獅潭鄉",
+      "FullName": "苗縣獅潭鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "356   ",
+      "ShtName": "苗縣後龍鎮",
+      "FullName": "苗縣後龍鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "357   ",
+      "ShtName": "苗縣通霄鎮",
+      "FullName": "苗縣通霄鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "358   ",
+      "ShtName": "苗縣苑裡鎮",
+      "FullName": "苗縣苑裡鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "360   ",
+      "ShtName": "苗縣苗栗市",
+      "FullName": "苗縣苗栗市"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "361   ",
+      "ShtName": "苗縣造橋鎮",
+      "FullName": "苗縣造橋鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "362   ",
+      "ShtName": "苗縣頭屋鄉",
+      "FullName": "苗縣頭屋鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "363   ",
+      "ShtName": "苗縣公館鄉",
+      "FullName": "苗縣公館鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "364   ",
+      "ShtName": "苗縣大湖鄉",
+      "FullName": "苗縣大湖鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "365   ",
+      "ShtName": "苗縣泰安鄉",
+      "FullName": "苗縣泰安鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "366   ",
+      "ShtName": "苗縣銅鑼鎮",
+      "FullName": "苗縣銅鑼鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "367   ",
+      "ShtName": "苗縣三義鄉",
+      "FullName": "苗縣三義鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "368   ",
+      "ShtName": "苗縣西湖鄉",
+      "FullName": "苗縣西湖鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "369   ",
+      "ShtName": "苗縣卓蘭鎮",
+      "FullName": "苗縣卓蘭鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "400   ",
+      "ShtName": "中市中區",
+      "FullName": "中市中區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "401   ",
+      "ShtName": "中市東區",
+      "FullName": "中市東區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "402   ",
+      "ShtName": "中市南區",
+      "FullName": "中市南區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "403   ",
+      "ShtName": "中市西區",
+      "FullName": "中市西區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "404   ",
+      "ShtName": "中市北區",
+      "FullName": "中市北區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "406   ",
+      "ShtName": "中市北屯區",
+      "FullName": "中市北屯區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "407   ",
+      "ShtName": "中市西屯區",
+      "FullName": "中市西屯區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "408   ",
+      "ShtName": "中市南屯區",
+      "FullName": "中市南屯區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "411   ",
+      "ShtName": "中市太平區",
+      "FullName": "中市太平區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "412   ",
+      "ShtName": "中市大里區",
+      "FullName": "中市大里區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "413   ",
+      "ShtName": "中市霧峰區",
+      "FullName": "中市霧峰區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "414   ",
+      "ShtName": "中市烏日區",
+      "FullName": "中市烏日區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "420   ",
+      "ShtName": "中市豐原區",
+      "FullName": "中市豐原區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "421   ",
+      "ShtName": "中市后里區",
+      "FullName": "中市后里區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "422   ",
+      "ShtName": "中市石岡區",
+      "FullName": "中市石岡區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "423   ",
+      "ShtName": "中市東勢區",
+      "FullName": "中市東勢區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "424   ",
+      "ShtName": "中市和平區",
+      "FullName": "中市和平區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "426   ",
+      "ShtName": "中市新社區",
+      "FullName": "中市新社區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "427   ",
+      "ShtName": "中市潭子區",
+      "FullName": "中市潭子區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "428   ",
+      "ShtName": "中市大雅區",
+      "FullName": "中市大雅區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "429   ",
+      "ShtName": "中市神岡區",
+      "FullName": "中市神岡區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "432   ",
+      "ShtName": "中市大肚區",
+      "FullName": "中市大肚區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "433   ",
+      "ShtName": "中市沙鹿區",
+      "FullName": "中市沙鹿區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "434   ",
+      "ShtName": "中市龍井區",
+      "FullName": "中市龍井區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "435   ",
+      "ShtName": "中市梧棲區",
+      "FullName": "中市梧棲區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "436   ",
+      "ShtName": "中市清水區",
+      "FullName": "中市清水區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "437   ",
+      "ShtName": "中市大甲區",
+      "FullName": "中市大甲區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "438   ",
+      "ShtName": "中市外埔區",
+      "FullName": "中市外埔區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "439   ",
+      "ShtName": "中市大安區",
+      "FullName": "中市大安區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "500   ",
+      "ShtName": "彰縣彰化市",
+      "FullName": "彰縣彰化市"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "502   ",
+      "ShtName": "彰縣芬園鄉",
+      "FullName": "彰縣芬園鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "503   ",
+      "ShtName": "彰縣花壇鄉",
+      "FullName": "彰縣花壇鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "504   ",
+      "ShtName": "彰縣秀水鄉",
+      "FullName": "彰縣秀水鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "505   ",
+      "ShtName": "彰縣鹿港鎮",
+      "FullName": "彰縣鹿港鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "506   ",
+      "ShtName": "彰縣福興鄉",
+      "FullName": "彰縣福興鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "507   ",
+      "ShtName": "彰縣線西鄉",
+      "FullName": "彰縣線西鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "508   ",
+      "ShtName": "彰縣和美鎮",
+      "FullName": "彰縣和美鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "509   ",
+      "ShtName": "彰縣伸港鄉",
+      "FullName": "彰縣伸港鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "510   ",
+      "ShtName": "彰縣員林鎮",
+      "FullName": "彰縣員林鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "511   ",
+      "ShtName": "彰縣社頭鄉",
+      "FullName": "彰縣社頭鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "512   ",
+      "ShtName": "彰縣永靖鄉",
+      "FullName": "彰縣永靖鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "513   ",
+      "ShtName": "彰縣埔心鄉",
+      "FullName": "彰縣埔心鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "514   ",
+      "ShtName": "彰縣溪湖鎮",
+      "FullName": "彰縣溪湖鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "515   ",
+      "ShtName": "彰縣大村鎮",
+      "FullName": "彰縣大村鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "516   ",
+      "ShtName": "彰縣埔鹽鄉",
+      "FullName": "彰縣埔鹽鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "520   ",
+      "ShtName": "彰縣田中鎮",
+      "FullName": "彰縣田中鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "521   ",
+      "ShtName": "彰縣北斗鎮",
+      "FullName": "彰縣北斗鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "522   ",
+      "ShtName": "彰縣田尾鎮",
+      "FullName": "彰縣田尾鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "523   ",
+      "ShtName": "彰縣埤頭鄉",
+      "FullName": "彰縣埤頭鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "524   ",
+      "ShtName": "彰縣溪州鄉",
+      "FullName": "彰縣溪州鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "525   ",
+      "ShtName": "彰縣竹塘鎮",
+      "FullName": "彰縣竹塘鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "526   ",
+      "ShtName": "彰縣二林鎮",
+      "FullName": "彰縣二林鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "527   ",
+      "ShtName": "彰縣大城鎮",
+      "FullName": "彰縣大城鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "528   ",
+      "ShtName": "彰縣芳苑鄉",
+      "FullName": "彰縣芳苑鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "530   ",
+      "ShtName": "彰縣二水鎮",
+      "FullName": "彰縣二水鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "540   ",
+      "ShtName": "投縣南投市",
+      "FullName": "投縣南投市"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "541   ",
+      "ShtName": "投縣中寮鄉",
+      "FullName": "投縣中寮鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "542   ",
+      "ShtName": "投縣草屯鎮",
+      "FullName": "投縣草屯鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "544   ",
+      "ShtName": "投縣國姓鄉",
+      "FullName": "投縣國姓鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "545   ",
+      "ShtName": "投縣埔里鎮",
+      "FullName": "投縣埔里鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "546   ",
+      "ShtName": "投縣仁愛鄉",
+      "FullName": "投縣仁愛鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "551   ",
+      "ShtName": "投縣名間鄉",
+      "FullName": "投縣名間鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "552   ",
+      "ShtName": "投縣集集鎮",
+      "FullName": "投縣集集鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "553   ",
+      "ShtName": "投縣水里鎮",
+      "FullName": "投縣水里鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "555   ",
+      "ShtName": "投縣魚池鄉",
+      "FullName": "投縣魚池鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "556   ",
+      "ShtName": "投縣信義鄉",
+      "FullName": "投縣信義鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "557   ",
+      "ShtName": "投縣竹山鎮",
+      "FullName": "投縣竹山鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "558   ",
+      "ShtName": "投縣鹿谷鄉",
+      "FullName": "投縣鹿谷鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "600   ",
+      "ShtName": "嘉市",
+      "FullName": "嘉市"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "602   ",
+      "ShtName": "嘉縣番路鄉",
+      "FullName": "嘉縣番路鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "603   ",
+      "ShtName": "嘉縣梅山鄉",
+      "FullName": "嘉縣梅山鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "604   ",
+      "ShtName": "嘉縣竹崎鄉",
+      "FullName": "嘉縣竹崎鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "605   ",
+      "ShtName": "嘉縣阿里山",
+      "FullName": "嘉縣阿里山鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "606   ",
+      "ShtName": "嘉縣中埔鄉",
+      "FullName": "嘉縣中埔鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "607   ",
+      "ShtName": "嘉縣大埔鄉",
+      "FullName": "嘉縣大埔鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "608   ",
+      "ShtName": "嘉縣水上鄉",
+      "FullName": "嘉縣水上鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "611   ",
+      "ShtName": "嘉縣鹿草鄉",
+      "FullName": "嘉縣鹿草鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "612   ",
+      "ShtName": "嘉縣太保鄉",
+      "FullName": "嘉縣太保鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "613   ",
+      "ShtName": "嘉縣朴子鄉",
+      "FullName": "嘉縣朴子鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "614   ",
+      "ShtName": "嘉縣東石鄉",
+      "FullName": "嘉縣東石鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "615   ",
+      "ShtName": "嘉縣六腳鄉",
+      "FullName": "嘉縣六腳鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "616   ",
+      "ShtName": "嘉縣新港鄉",
+      "FullName": "嘉縣新港鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "621   ",
+      "ShtName": "嘉縣民雄鄉",
+      "FullName": "嘉縣民雄鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "622   ",
+      "ShtName": "嘉縣大林鄉",
+      "FullName": "嘉縣大林鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "623   ",
+      "ShtName": "嘉縣溪口鄉",
+      "FullName": "嘉縣溪口鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "624   ",
+      "ShtName": "嘉縣義竹鄉",
+      "FullName": "嘉縣義竹鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "625   ",
+      "ShtName": "嘉縣布袋鎮",
+      "FullName": "嘉縣布袋鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "630   ",
+      "ShtName": "雲縣斗南鎮",
+      "FullName": "雲縣斗南鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "631   ",
+      "ShtName": "雲縣大埤鄉",
+      "FullName": "雲縣大埤鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "632   ",
+      "ShtName": "雲縣虎尾鎮",
+      "FullName": "雲縣虎尾鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "633   ",
+      "ShtName": "雲縣土庫鎮",
+      "FullName": "雲縣土庫鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "634   ",
+      "ShtName": "雲縣褒忠鄉",
+      "FullName": "雲縣褒忠鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "635   ",
+      "ShtName": "雲縣東勢鎮",
+      "FullName": "雲縣東勢鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "636   ",
+      "ShtName": "雲縣台西鄉",
+      "FullName": "雲縣台西鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "637   ",
+      "ShtName": "雲縣崙背鄉",
+      "FullName": "雲縣崙背鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "638   ",
+      "ShtName": "雲縣麥寮鄉",
+      "FullName": "雲縣麥寮鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "640   ",
+      "ShtName": "雲縣斗六鎮",
+      "FullName": "雲縣斗六鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "643   ",
+      "ShtName": "雲縣林內鄉",
+      "FullName": "雲縣林內鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "646   ",
+      "ShtName": "雲縣古坑鄉",
+      "FullName": "雲縣古坑鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "647   ",
+      "ShtName": "雲縣莿桐鄉",
+      "FullName": "雲縣莿桐鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "648   ",
+      "ShtName": "雲縣西螺鎮",
+      "FullName": "雲縣西螺鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "649   ",
+      "ShtName": "雲縣二崙鄉",
+      "FullName": "雲縣二崙鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "651   ",
+      "ShtName": "雲縣北港鎮",
+      "FullName": "雲縣北港鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "652   ",
+      "ShtName": "雲縣水林鎮",
+      "FullName": "雲縣水林鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "653   ",
+      "ShtName": "雲縣口湖鄉",
+      "FullName": "雲縣口湖鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "654   ",
+      "ShtName": "雲縣四湖鄉",
+      "FullName": "雲縣四湖鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "655   ",
+      "ShtName": "雲縣元長鄉",
+      "FullName": "雲縣元長鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "700   ",
+      "ShtName": "南市中西區",
+      "FullName": "南市中西區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "701   ",
+      "ShtName": "南市東區",
+      "FullName": "南市東區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "702   ",
+      "ShtName": "南市南區",
+      "FullName": "南市南區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "703   ",
+      "ShtName": "南市西區",
+      "FullName": "南市西區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "704   ",
+      "ShtName": "南市北區",
+      "FullName": "南市北區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "708   ",
+      "ShtName": "南市安平區",
+      "FullName": "南市安平區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "709   ",
+      "ShtName": "南市安南區",
+      "FullName": "南市安南區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "710   ",
+      "ShtName": "南市永康區",
+      "FullName": "南市永康區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "711   ",
+      "ShtName": "南市歸仁區",
+      "FullName": "南市歸仁區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "712   ",
+      "ShtName": "南市新化區",
+      "FullName": "南市新化區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "713   ",
+      "ShtName": "南市左鎮區",
+      "FullName": "南市左鎮區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "714   ",
+      "ShtName": "南市玉井區",
+      "FullName": "南市玉井區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "715   ",
+      "ShtName": "南市楠西區",
+      "FullName": "南市楠西區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "716   ",
+      "ShtName": "南市南化區",
+      "FullName": "南市南化區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "717   ",
+      "ShtName": "南市仁德區",
+      "FullName": "南市仁德區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "718   ",
+      "ShtName": "南市關廟區",
+      "FullName": "南市關廟區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "719   ",
+      "ShtName": "南市龍崎區",
+      "FullName": "南市龍崎區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "720   ",
+      "ShtName": "南市官田區",
+      "FullName": "南市官田區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "721   ",
+      "ShtName": "南市麻豆區",
+      "FullName": "南市麻豆區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "722   ",
+      "ShtName": "南市佳里區",
+      "FullName": "南市佳里區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "723   ",
+      "ShtName": "南市西港區",
+      "FullName": "南市西港區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "724   ",
+      "ShtName": "南市七股區",
+      "FullName": "南市七股區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "725   ",
+      "ShtName": "南市將軍區",
+      "FullName": "南市將軍區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "726   ",
+      "ShtName": "南市學甲區",
+      "FullName": "南市學甲區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "727   ",
+      "ShtName": "南市北門區",
+      "FullName": "南市北門區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "730   ",
+      "ShtName": "南市新營區",
+      "FullName": "南市新營區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "731   ",
+      "ShtName": "南市後璧區",
+      "FullName": "南市後璧區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "732   ",
+      "ShtName": "南市白河區",
+      "FullName": "南市白河區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "733   ",
+      "ShtName": "南市東山區",
+      "FullName": "南市東山區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "734   ",
+      "ShtName": "南市六甲區",
+      "FullName": "南市六甲區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "735   ",
+      "ShtName": "南市下營區",
+      "FullName": "南市下營區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "736   ",
+      "ShtName": "南市柳營區",
+      "FullName": "南市柳營區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "737   ",
+      "ShtName": "南市鹽水區",
+      "FullName": "南市鹽水區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "741   ",
+      "ShtName": "南市善化區",
+      "FullName": "南市善化區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "742   ",
+      "ShtName": "南市大內區",
+      "FullName": "南市大內區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "743   ",
+      "ShtName": "南市山上區",
+      "FullName": "南市山上區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "744   ",
+      "ShtName": "南市新市區",
+      "FullName": "南市新市區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "745   ",
+      "ShtName": "南市安定區",
+      "FullName": "南市安定區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "800   ",
+      "ShtName": "高市新興區",
+      "FullName": "高市新興區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "801   ",
+      "ShtName": "高市前金區",
+      "FullName": "高市前金區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "802   ",
+      "ShtName": "高市苓雅區",
+      "FullName": "高市苓雅區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "803   ",
+      "ShtName": "高市鹽埕區",
+      "FullName": "高市鹽埕區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "804   ",
+      "ShtName": "高市鼓山區",
+      "FullName": "高市鼓山區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "805   ",
+      "ShtName": "高市旗津區",
+      "FullName": "高市旗津區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "806   ",
+      "ShtName": "高市前鎮區",
+      "FullName": "高市前鎮區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "807   ",
+      "ShtName": "高市三民區",
+      "FullName": "高市三民區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "811   ",
+      "ShtName": "高市楠梓區",
+      "FullName": "高市楠梓區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "812   ",
+      "ShtName": "高市小港區",
+      "FullName": "高市小港區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "813   ",
+      "ShtName": "高市左營區",
+      "FullName": "高市左營區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "814   ",
+      "ShtName": "高市仁武區",
+      "FullName": "高市仁武區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "815   ",
+      "ShtName": "高市大社區",
+      "FullName": "高市大社區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "820   ",
+      "ShtName": "高市岡山區",
+      "FullName": "高市岡山區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "821   ",
+      "ShtName": "高市路竹區",
+      "FullName": "高市路竹區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "822   ",
+      "ShtName": "高市阿蓮區",
+      "FullName": "高市阿蓮區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "823   ",
+      "ShtName": "高市田寮區",
+      "FullName": "高市田寮區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "824   ",
+      "ShtName": "高市燕巢區",
+      "FullName": "高市燕巢區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "825   ",
+      "ShtName": "高市橋頭區",
+      "FullName": "高市橋頭區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "826   ",
+      "ShtName": "高市梓官區",
+      "FullName": "高市梓官區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "827   ",
+      "ShtName": "高市彌陀區",
+      "FullName": "高市彌陀區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "828   ",
+      "ShtName": "高市永安區",
+      "FullName": "高市永安區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "829   ",
+      "ShtName": "高市湖內區",
+      "FullName": "高市湖內區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "830   ",
+      "ShtName": "高市鳳山區",
+      "FullName": "高市鳳山區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "831   ",
+      "ShtName": "高市大寮區",
+      "FullName": "高市大寮區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "832   ",
+      "ShtName": "高市林園區",
+      "FullName": "高市林園區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "833   ",
+      "ShtName": "高市鳥松區",
+      "FullName": "高市鳥松區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "840   ",
+      "ShtName": "高市大樹區",
+      "FullName": "高市大樹區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "842   ",
+      "ShtName": "高市旗山區",
+      "FullName": "高市旗山區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "843   ",
+      "ShtName": "高市美濃區",
+      "FullName": "高市美濃區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "844   ",
+      "ShtName": "高市六龜區",
+      "FullName": "高市六龜區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "845   ",
+      "ShtName": "高市內門區",
+      "FullName": "高市內門區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "846   ",
+      "ShtName": "高市杉林區",
+      "FullName": "高市杉林區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "847   ",
+      "ShtName": "高市甲仙區",
+      "FullName": "高市甲仙區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "848   ",
+      "ShtName": "高市桃源區",
+      "FullName": "高市桃源區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "849   ",
+      "ShtName": "高市那瑪夏",
+      "FullName": "高市那瑪夏區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "851   ",
+      "ShtName": "高市茂林區",
+      "FullName": "高市茂林區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "852   ",
+      "ShtName": "高市茄萣區",
+      "FullName": "高市茄萣區"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "880   ",
+      "ShtName": "澎湖縣馬公",
+      "FullName": "澎湖縣馬公"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "881   ",
+      "ShtName": "澎湖縣西嶼",
+      "FullName": "澎湖縣西嶼"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "882   ",
+      "ShtName": "澎湖縣望安",
+      "FullName": "澎湖縣望安"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "883   ",
+      "ShtName": "澎湖縣七美",
+      "FullName": "澎湖縣七美"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "884   ",
+      "ShtName": "澎湖縣白沙",
+      "FullName": "澎湖縣白沙"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "885   ",
+      "ShtName": "澎湖縣湖西",
+      "FullName": "澎湖縣湖西"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "890   ",
+      "ShtName": "金門縣金沙",
+      "FullName": "金門縣金沙"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "891   ",
+      "ShtName": "金門縣金湖",
+      "FullName": "金門縣金湖"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "892   ",
+      "ShtName": "金門縣金寧",
+      "FullName": "金門縣金寧"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "893   ",
+      "ShtName": "金門縣金城",
+      "FullName": "金門縣金城"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "894   ",
+      "ShtName": "金門縣烈嶼",
+      "FullName": "金門縣烈嶼"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "896   ",
+      "ShtName": "金門縣烏坵",
+      "FullName": "金門縣烏坵"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "900   ",
+      "ShtName": "屏縣屏東市",
+      "FullName": "屏縣屏東市"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "901   ",
+      "ShtName": "屏縣三地門",
+      "FullName": "屏縣三地門"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "902   ",
+      "ShtName": "屏縣霧台",
+      "FullName": "屏縣霧台"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "903   ",
+      "ShtName": "屏縣瑪家",
+      "FullName": "屏縣瑪家"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "904   ",
+      "ShtName": "屏縣九如",
+      "FullName": "屏縣九如"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "905   ",
+      "ShtName": "屏縣里港",
+      "FullName": "屏縣里港"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "906   ",
+      "ShtName": "屏縣高樹",
+      "FullName": "屏縣高樹"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "907   ",
+      "ShtName": "屏縣鹽埔",
+      "FullName": "屏縣鹽埔"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "908   ",
+      "ShtName": "屏縣長治",
+      "FullName": "屏縣長治"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "909   ",
+      "ShtName": "屏縣麟洛",
+      "FullName": "屏縣麟洛"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "911   ",
+      "ShtName": "屏縣竹田",
+      "FullName": "屏縣竹田"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "912   ",
+      "ShtName": "屏縣內埔",
+      "FullName": "屏縣內埔"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "913   ",
+      "ShtName": "屏縣萬丹",
+      "FullName": "屏縣萬丹"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "920   ",
+      "ShtName": "屏縣潮洲",
+      "FullName": "屏縣潮洲"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "921   ",
+      "ShtName": "屏縣泰武",
+      "FullName": "屏縣泰武"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "922   ",
+      "ShtName": "屏縣來義",
+      "FullName": "屏縣來義"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "923   ",
+      "ShtName": "屏縣萬巒",
+      "FullName": "屏縣萬巒"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "924   ",
+      "ShtName": "屏縣崁頂",
+      "FullName": "屏縣崁頂"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "925   ",
+      "ShtName": "屏縣新碑",
+      "FullName": "屏縣新碑"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "926   ",
+      "ShtName": "屏縣南州",
+      "FullName": "屏縣南州"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "927   ",
+      "ShtName": "屏縣林邊",
+      "FullName": "屏縣林邊"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "928   ",
+      "ShtName": "屏東東港",
+      "FullName": "屏東東港"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "929   ",
+      "ShtName": "屏縣琉球",
+      "FullName": "屏縣琉球"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "931   ",
+      "ShtName": "屏縣佳冬",
+      "FullName": "屏縣佳冬"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "932   ",
+      "ShtName": "屏縣新園",
+      "FullName": "屏縣新園"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "940   ",
+      "ShtName": "屏縣枋寮",
+      "FullName": "屏縣枋寮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "941   ",
+      "ShtName": "屏縣枋山",
+      "FullName": "屏縣枋山"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "942   ",
+      "ShtName": "屏縣春日",
+      "FullName": "屏縣春日"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "943   ",
+      "ShtName": "屏縣獅子",
+      "FullName": "屏縣獅子"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "944   ",
+      "ShtName": "屏縣車城",
+      "FullName": "屏縣車城"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "945   ",
+      "ShtName": "屏縣牡丹",
+      "FullName": "屏縣牡丹"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "946   ",
+      "ShtName": "屏縣恆春",
+      "FullName": "屏縣恆春"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "947   ",
+      "ShtName": "屏縣滿州",
+      "FullName": "屏縣滿州"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "950   ",
+      "ShtName": "台東縣台東",
+      "FullName": "台東縣台東"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "951   ",
+      "ShtName": "台東縣綠島",
+      "FullName": "台東縣綠島"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "952   ",
+      "ShtName": "台東縣蘭嶼",
+      "FullName": "台東縣蘭嶼"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "953   ",
+      "ShtName": "台東縣延平",
+      "FullName": "台東縣延平"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "954   ",
+      "ShtName": "台東縣卑南",
+      "FullName": "台東縣卑南"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "955   ",
+      "ShtName": "台東縣鹿野",
+      "FullName": "台東縣鹿野"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "956   ",
+      "ShtName": "台東縣關山",
+      "FullName": "台東縣關山"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "957   ",
+      "ShtName": "台東縣海端",
+      "FullName": "台東縣海端"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "958   ",
+      "ShtName": "台東縣池上",
+      "FullName": "台東縣池上"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "959   ",
+      "ShtName": "台東縣東河",
+      "FullName": "台東縣東河"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "961   ",
+      "ShtName": "台東縣成功",
+      "FullName": "台東縣成功"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "962   ",
+      "ShtName": "台東縣長濱",
+      "FullName": "台東縣長濱"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "963   ",
+      "ShtName": "台東太麻里",
+      "FullName": "台東太麻里"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "964   ",
+      "ShtName": "台東縣金峰",
+      "FullName": "台東縣金峰"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "965   ",
+      "ShtName": "台東縣大武",
+      "FullName": "台東縣大武"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "966   ",
+      "ShtName": "台東縣達仁",
+      "FullName": "台東縣達仁"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "970   ",
+      "ShtName": "花縣花蓮市",
+      "FullName": "花縣花蓮市"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "971   ",
+      "ShtName": "花縣新城鄉",
+      "FullName": "花縣新城鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "972   ",
+      "ShtName": "花縣秀林鄉",
+      "FullName": "花縣秀林鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "973   ",
+      "ShtName": "花縣吉安鄉",
+      "FullName": "花縣吉安鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "974   ",
+      "ShtName": "花縣壽豐鄉",
+      "FullName": "花縣壽豐鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "975   ",
+      "ShtName": "花縣鳳林鄉",
+      "FullName": "花縣鳳林鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "976   ",
+      "ShtName": "花縣光復鄉",
+      "FullName": "花縣光復鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "977   ",
+      "ShtName": "花縣豐濱鄉",
+      "FullName": "花縣豐濱鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "978   ",
+      "ShtName": "花縣瑞穗鄉",
+      "FullName": "花縣瑞穗鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "979   ",
+      "ShtName": "花縣萬榮鄉",
+      "FullName": "花縣萬榮鄉"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "981   ",
+      "ShtName": "花縣玉里鎮",
+      "FullName": "花縣玉里鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "982   ",
+      "ShtName": "花縣卓溪鎮",
+      "FullName": "花縣卓溪鎮"
+    },
+    {
+      "TypeID": "1",
+      "CodeID": "983   ",
+      "ShtName": "花縣富里鎮",
+      "FullName": "花縣富里鎮"
+    }
+  ]
+}

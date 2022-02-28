@@ -1,0 +1,414 @@
+{
+  "Status": 200,
+  "ErrorMessage": null,
+  "Data": [
+    {
+      "DeptID": "0000  ",
+      "DeptName": "總公司",
+      "Memo": "",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "00300 ",
+      "DeptName": "董事長室",
+      "Memo": "董事長室",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "10000 ",
+      "DeptName": "社會服務志",
+      "Memo": "社會服務志業群",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "10200 ",
+      "DeptName": "台灣厚道社",
+      "Memo": "台灣厚道社會服務聯合會",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "10300 ",
+      "DeptName": "台灣聯合抗",
+      "Memo": "台灣聯合抗癌協會",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "20000 ",
+      "DeptName": "健康保健事",
+      "Memo": "健康保健事業群",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "21000 ",
+      "DeptName": "管理服務中",
+      "Memo": "管理服務中心",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "21100 ",
+      "DeptName": "管財務處",
+      "Memo": "管理服務中心-財務處",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "21200 ",
+      "DeptName": "管會計處",
+      "Memo": "管理服務中心-會計處",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "21300 ",
+      "DeptName": "人人資處",
+      "Memo": "人資培訓中心-人資處",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "21400 ",
+      "DeptName": "人培訓處",
+      "Memo": "人資培訓中心-培訓處",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "21500 ",
+      "DeptName": "管資訊處",
+      "Memo": "管理服務中心-資訊處",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "21600 ",
+      "DeptName": "管採購處",
+      "Memo": "管理服務中心-採購處",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "21700 ",
+      "DeptName": "管總務股務",
+      "Memo": "管理服務中心-總務股務處",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "21800 ",
+      "DeptName": "管倉儲物流",
+      "Memo": "管理服務中心-倉儲物流處",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "21900 ",
+      "DeptName": "管業務行政",
+      "Memo": "管理服務中心-業務行政處",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "22000 ",
+      "DeptName": "研究發展中",
+      "Memo": "研究發展中心",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "22100 ",
+      "DeptName": "研臨床研究",
+      "Memo": "研究發展中心-臨床研究處",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "22200 ",
+      "DeptName": "研產品研發",
+      "Memo": "研究發展中心-產品研發處",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "22800 ",
+      "DeptName": "台灣褐藻醣",
+      "Memo": "台灣褐藻醣膠發展學會",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "23000 ",
+      "DeptName": "人醫保健部",
+      "Memo": "人醫保健部",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "23100 ",
+      "DeptName": "人藥局通路",
+      "Memo": "人醫保健部-藥局通路處",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "23110 ",
+      "DeptName": "人北A區",
+      "Memo": "人醫保健部-藥局通路處-北A區",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "23120 ",
+      "DeptName": "人北B區",
+      "Memo": "人醫保健部-藥局通路處-北B區",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "23130 ",
+      "DeptName": "人中區",
+      "Memo": "人醫保健部-藥局通路處-中區",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "23140 ",
+      "DeptName": "人南區",
+      "Memo": "人醫保健部-藥局通路處-南區",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "23200 ",
+      "DeptName": "人醫療通路",
+      "Memo": "人醫保健部-醫療通路處",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "23900 ",
+      "DeptName": "人行銷處",
+      "Memo": "人醫保健部-行銷處",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "24000 ",
+      "DeptName": "動物保健部",
+      "Memo": "動物保健部",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "24100 ",
+      "DeptName": "動海外業務",
+      "Memo": "動物保健部-海外業務處",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "24200 ",
+      "DeptName": "動國內業務",
+      "Memo": "動物保健部-國內業務處",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "24210 ",
+      "DeptName": "動北區",
+      "Memo": "動物保健部-國內業務處-北區",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "24220 ",
+      "DeptName": "動中南區",
+      "Memo": "動物保健部-國內業務處-中南區",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "24900 ",
+      "DeptName": "動行銷處",
+      "Memo": "動物保健部-行銷處",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "25000 ",
+      "DeptName": "市場發展部",
+      "Memo": "市場發展部",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "25100 ",
+      "DeptName": "市保健業務",
+      "Memo": "市場發展部-保健業務處",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "25200 ",
+      "DeptName": "市美妝業務",
+      "Memo": "市場發展部-美妝業務處",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "25900 ",
+      "DeptName": "市行銷處",
+      "Memo": "市場發展部-行銷處",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "27000 ",
+      "DeptName": "整合營銷部",
+      "Memo": "整合營銷部",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "27400 ",
+      "DeptName": "整會員業務",
+      "Memo": "整合營銷部-會員業務處",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "27410 ",
+      "DeptName": "整展銷組",
+      "Memo": "整合營銷部-會員業務處-展銷組",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "27420 ",
+      "DeptName": "整會員業務",
+      "Memo": "整合營銷部-會員業務處-會員業務組",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "27430 ",
+      "DeptName": "整客服組",
+      "Memo": "整合營銷部-會員業務處-客服組",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "27900 ",
+      "DeptName": "整行銷處",
+      "Memo": "整合營銷部-行銷處",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "27910 ",
+      "DeptName": "整會員行銷",
+      "Memo": "整合營銷部-行銷處-會員行銷組",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "27920 ",
+      "DeptName": "整商城業務",
+      "Memo": "整合營銷部-行銷處-商城業務組",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "27930 ",
+      "DeptName": "整設計組",
+      "Memo": "整合營銷部-行銷處-設計組",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "28000 ",
+      "DeptName": "健康食",
+      "Memo": "健康食部",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "28100 ",
+      "DeptName": "健食餐廳",
+      "Memo": "健康食部-食餐廳",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "28110 ",
+      "DeptName": "健外場組",
+      "Memo": "健康?食部-?食餐廳-外場組",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "28120 ",
+      "DeptName": "健內場組",
+      "Memo": "健康?食部-?食餐廳-內場組",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "28200 ",
+      "DeptName": "健中央廚房",
+      "Memo": "健康?食部-中央廚房",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "28210 ",
+      "DeptName": "健廚務組",
+      "Memo": "健康?食部-中央廚房-廚務組",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "28220 ",
+      "DeptName": "健生管組",
+      "Memo": "健康?食部-中央廚房-生管組",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "28300 ",
+      "DeptName": "健加盟事業",
+      "Memo": "健康?食部-加盟事業處",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "28600 ",
+      "DeptName": "健行銷業務",
+      "Memo": "健康?食部-行銷業務處",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "28610 ",
+      "DeptName": "健行銷公關",
+      "Memo": "健康?食部-行銷業務處-行銷公關組",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "28620 ",
+      "DeptName": "健後勤行政",
+      "Memo": "健康?食部-行銷業務處-後勤行政組",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "28630 ",
+      "DeptName": "健通路業務",
+      "Memo": "健康?食部-行銷業務處-通路業務組",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "29000 ",
+      "DeptName": "人資培訓中",
+      "Memo": "人資培訓中心",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "30000 ",
+      "DeptName": "HiQ成長",
+      "Memo": "HiQ成長學苑",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "A0000 ",
+      "DeptName": "中華生態養",
+      "Memo": "中華生態養殖",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "A1000 ",
+      "DeptName": "管理部",
+      "Memo": "管理部",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "A2000 ",
+      "DeptName": "品保部",
+      "Memo": "品保部",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "A3000 ",
+      "DeptName": "生態養殖部",
+      "Memo": "生態養殖部",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "A3100 ",
+      "DeptName": "生東星斑養",
+      "Memo": "生態養殖部-東星斑養殖廠",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "A3200 ",
+      "DeptName": "生?來厚道",
+      "Memo": "生態養殖部-?來厚道養殖廠",
+      "DepreciationAccount": ""
+    },
+    {
+      "DeptID": "A4000 ",
+      "DeptName": "褐藻萃取廠",
+      "Memo": "褐藻萃取廠",
+      "DepreciationAccount": ""
+    }
+  ]
+}
