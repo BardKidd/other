@@ -90,7 +90,7 @@ import { OrderProcessing } from "@/mixins/orderProcessing.js";
 // 包含 concatProduct 函式
 import { AfterSaleProcessing } from "@/mixins/afterSaleProcessing.js";
 
-import { getPayTerm, getReturnReason } from "@/commonAPI/api.js";
+// import { getPayTerm, getReturnReason } from "@/commonAPI/api.js";
 
 import AfterSaleModal from "@/components/CommonModal/AfterSaleModal.vue";
 import Table from "@/views/ReturnManagement/ReturnWork/ReturnModalTemplate.vue";
@@ -98,6 +98,10 @@ import Table from "@/views/ReturnManagement/ReturnWork/ReturnModalTemplate.vue";
 import CheckModal from "@/components/ReturnManagement/CheckReturnModal.vue";
 
 import { mapGetters } from "vuex";
+
+// 未串接 API，引入 JSON 檔。
+import PayTerm from "@/data/Other/PayTerm.json";
+import ReturnReason from "@/data//Other/ReturnReason.json";
 
 export default {
   name: "AllReturnWork",
@@ -144,75 +148,88 @@ export default {
         return false;
       }
       await vm.getUnitPrice(vm.getUnitFormat(vm.confirmProduct));
-      let url = `${process.env.VUE_APP_APIPATH}/Inventory/Return/ReturnProducts`;
 
-      let ReturnProducts = vm.confirmProduct.map((item) => {
-        return {
-          ProductId: item.ProductId,
-          ProductName: item.ProductName,
-          Variant: item.Specification,
-          ReturnQty: Number(item.cardQuantity),
-          Uom: item.UOM,
-          UnitPrice: item.UnitPrice || 0,
-          GiftSpareQty: 0,
-        };
+      vm.$notify({
+        title: "成功",
+        message: "退貨成功",
+        type: "success",
+        duration: 3500,
       });
 
-      let sendData = {
-        SalesId: vm.saleInfo.EmpID,
-        CustomerId: vm.customer.CustomerID,
-        CustomerDeptId: vm.customer.DeptID,
-        TaxId: vm.customer.TaxID,
-        CustomerFullName: vm.customer.CustomerFullName,
-        Contact: vm.customer.Contact,
-        ContactTel: vm.customer.TEL_NO,
-        PaymentTermsCode: vm.returnData.PaymentTerms,
-        Memo: vm.returnData.Memo,
-        ReturnReasonCode: vm.returnData.RtnReasons,
-        ReturnContact: vm.returnData.Contact,
-        ReturnContactTel: vm.returnData.TEL_NO,
-        ReturnAddress: vm.returnData.ReceiveAddress,
-        CreateUser: localStorage.getItem("uofUserGuid"),
-        ReturnExchange: null,
-        ReturnProducts,
-      };
-      vm.$store.commit("ISLOADING", true);
-      await vm.$http
-        .post(url, sendData)
-        .then((res) => {
-          console.log(res);
-          if (res.data.Status >= 200 && res.data.Status < 300) {
-            vm.$notify({
-              title: "成功",
-              message: "退貨成功",
-              type: "success",
-              duration: 3500,
-            });
+      vm.$router.push({
+        name: "OrderFinish",
+        params: { text: "退貨單" },
+      });
 
-            vm.$router.push({
-              name: "OrderFinish",
-              params: { text: "退貨單" },
-            });
-          } else {
-            vm.$notify({
-              title: "錯誤",
-              message: res.data.ErrorMessage,
-              type: "error",
-              duration: 5000,
-            });
-          }
-          vm.$store.commit("ISLOADING", false);
-        })
-        .catch((error) => {
-          vm.$store.commit("ISLOADING", false);
+      // let url = `${process.env.VUE_APP_APIPATH}/Inventory/Return/ReturnProducts`;
 
-          vm.$notify({
-            title: "錯誤",
-            message: error.response.data,
-            type: "error",
-            duration: 5000,
-          });
-        });
+      // let ReturnProducts = vm.confirmProduct.map((item) => {
+      //   return {
+      //     ProductId: item.ProductId,
+      //     ProductName: item.ProductName,
+      //     Variant: item.Specification,
+      //     ReturnQty: Number(item.cardQuantity),
+      //     Uom: item.UOM,
+      //     UnitPrice: item.UnitPrice || 0,
+      //     GiftSpareQty: 0,
+      //   };
+      // });
+
+      // let sendData = {
+      //   SalesId: vm.saleInfo.EmpID,
+      //   CustomerId: vm.customer.CustomerID,
+      //   CustomerDeptId: vm.customer.DeptID,
+      //   TaxId: vm.customer.TaxID,
+      //   CustomerFullName: vm.customer.CustomerFullName,
+      //   Contact: vm.customer.Contact,
+      //   ContactTel: vm.customer.TEL_NO,
+      //   PaymentTermsCode: vm.returnData.PaymentTerms,
+      //   Memo: vm.returnData.Memo,
+      //   ReturnReasonCode: vm.returnData.RtnReasons,
+      //   ReturnContact: vm.returnData.Contact,
+      //   ReturnContactTel: vm.returnData.TEL_NO,
+      //   ReturnAddress: vm.returnData.ReceiveAddress,
+      //   CreateUser: localStorage.getItem("uofUserGuid"),
+      //   ReturnExchange: null,
+      //   ReturnProducts,
+      // };
+      // vm.$store.commit("ISLOADING", true);
+      // await vm.$http
+      //   .post(url, sendData)
+      //   .then((res) => {
+      //     console.log(res);
+      //     if (res.data.Status >= 200 && res.data.Status < 300) {
+      //       vm.$notify({
+      //         title: "成功",
+      //         message: "退貨成功",
+      //         type: "success",
+      //         duration: 3500,
+      //       });
+
+      //       vm.$router.push({
+      //         name: "OrderFinish",
+      //         params: { text: "退貨單" },
+      //       });
+      //     } else {
+      //       vm.$notify({
+      //         title: "錯誤",
+      //         message: res.data.ErrorMessage,
+      //         type: "error",
+      //         duration: 5000,
+      //       });
+      //     }
+      //     vm.$store.commit("ISLOADING", false);
+      //   })
+      //   .catch((error) => {
+      //     vm.$store.commit("ISLOADING", false);
+
+      //     vm.$notify({
+      //       title: "錯誤",
+      //       message: error.response.data,
+      //       type: "error",
+      //       duration: 5000,
+      //     });
+      //   });
     },
 
     sendData() {
@@ -318,33 +335,43 @@ export default {
     },
 
     // 取得產品單價
-    getUnitPrice(params) {
+    getUnitPrice(/*params*/) {
       const vm = this;
-      let url = `${process.env.VUE_APP_APIPATH}/Inventory/Product/GetProductUnitPrice`;
-      vm.$store.commit("ISLOADING", true);
-      vm.$http
-        .post(url, params)
-        .then((res) => {
-          vm.UnitPrice = res.data.Data;
+      // let url = `${process.env.VUE_APP_APIPATH}/Inventory/Product/GetProductUnitPrice`;
+      // vm.$store.commit("ISLOADING", true);
 
-          vm.confirmProduct.forEach((product) => {
-            vm.UnitPrice.forEach((price) => {
-              if (price.ItemNo === product.ProductId.trim()) {
-                product.UnitPrice = price.UnitPrice;
-              }
-            });
-          });
+      vm.confirmProduct.forEach((product) => {
+        product.UnitPrice = 10;
+      });
+      let total = 0;
+      vm.confirmProduct.forEach((item) => {
+        total += item.cardQuantity * item.UnitPrice;
+      });
+      vm.totalPrice = total;
 
-          let total = 0;
-          vm.UnitPrice.forEach((item) => {
-            total += item.UnitPrice;
-          });
-          vm.totalPrice = total;
-          vm.$store.commit("ISLOADING", false);
-        })
-        .catch(() => {
-          vm.$store.commit("ISLOADING", false);
-        });
+      // vm.$http
+      //   .post(url, params)
+      //   .then((res) => {
+      //     vm.UnitPrice = res.data.Data;
+
+      //     vm.confirmProduct.forEach((product) => {
+      //       vm.UnitPrice.forEach((price) => {
+      //         if (price.ItemNo === product.ProductId.trim()) {
+      //           product.UnitPrice = price.UnitPrice;
+      //         }
+      //       });
+      //     });
+
+      //     let total = 0;
+      //     vm.UnitPrice.forEach((item) => {
+      //       total += item.UnitPrice;
+      //     });
+      //     vm.totalPrice = total;
+      //     vm.$store.commit("ISLOADING", false);
+      //   })
+      //   .catch(() => {
+      //     vm.$store.commit("ISLOADING", false);
+      //   });
     },
   },
   mounted() {
@@ -359,39 +386,43 @@ export default {
 
     vm.confirmProduct = vm.$route.params.confirmProduct || vm.localSureProduct; // 前頁面下單 Modal 帶入的商品
 
-    vm.$store.commit("ISLOADING", true);
-    vm.axios.all([getReturnReason(), getPayTerm()]).then(
-      vm.axios.spread((allReturnReason, allPayTerm) => {
-        if (
-          allReturnReason.data.Status >= 200 &&
-          allReturnReason.data.Status < 300
-        ) {
-          vm.allReturnReason = allReturnReason.data.Data;
-          if (allReturnReason.data.ErrorMessage) {
-            vm.$notify({
-              title: "錯誤",
-              message: allReturnReason.data.ErrorMessage,
-              type: "error",
-              duration: 3500,
-            });
-          }
-        }
+    // vm.$store.commit("ISLOADING", true);
 
-        if (allPayTerm.data.Status >= 200 && allPayTerm.data.Status < 300) {
-          vm.allPayTerm = allPayTerm.data.Data;
-          if (allReturnReason.data.ErrorMessage) {
-            vm.$notify({
-              title: "錯誤",
-              message: allPayTerm.data.ErrorMessage,
-              type: "error",
-              duration: 3500,
-            });
-          }
-        }
+    vm.allReturnReason = ReturnReason.Data;
+    vm.allPayTerm = PayTerm.Data;
 
-        vm.$store.commit("ISLOADING", false);
-      })
-    );
+    // vm.axios.all([getReturnReason(), getPayTerm()]).then(
+    //   vm.axios.spread((allReturnReason, allPayTerm) => {
+    //     if (
+    //       allReturnReason.data.Status >= 200 &&
+    //       allReturnReason.data.Status < 300
+    //     ) {
+    //       vm.allReturnReason = allReturnReason.data.Data;
+    //       if (allReturnReason.data.ErrorMessage) {
+    //         vm.$notify({
+    //           title: "錯誤",
+    //           message: allReturnReason.data.ErrorMessage,
+    //           type: "error",
+    //           duration: 3500,
+    //         });
+    //       }
+    //     }
+
+    //     if (allPayTerm.data.Status >= 200 && allPayTerm.data.Status < 300) {
+    //       vm.allPayTerm = allPayTerm.data.Data;
+    //       if (allReturnReason.data.ErrorMessage) {
+    //         vm.$notify({
+    //           title: "錯誤",
+    //           message: allPayTerm.data.ErrorMessage,
+    //           type: "error",
+    //           duration: 3500,
+    //         });
+    //       }
+    //     }
+
+    //     vm.$store.commit("ISLOADING", false);
+    //   })
+    // );
 
     vm.$store.commit("ISLOADING", false);
   },
