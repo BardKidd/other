@@ -131,8 +131,14 @@
 /* global $ */
 import { commonFunction } from "@/mixins/commonFunction.js";
 import ReadOnlyModal from "@/views/OrderManagement/OrderSearch/ReadonlySearchModal.vue";
-import { getDeliveryTime } from "@/commonAPI/api.js";
+// import { getDeliveryTime } from "@/commonAPI/api.js";
 import Pagination from "@/components/CommonComponent/Pagination.vue";
+
+// 未串接 API，所以直接引入 JSON 檔。
+import OrderSearchData from "@/data/Customers/OrderSearch.json";
+import Data1 from "@/data/Customers/OrderSearch1.json";
+import Data2 from "@/data/Customers/OrderSearch2.json";
+import deliveryTime from "@/data/Other/DeliveryTime.json";
 
 export default {
   name: "OrderSearch",
@@ -171,65 +177,98 @@ export default {
       const vm = this;
       vm.searchBox.from = !vm.searchBox.from ? "" : vm.searchBox.from;
       vm.searchBox.to = !vm.searchBox.to ? "" : vm.searchBox.to;
-      let url = `${process.env.VUE_APP_APIPATH}/Inventory/Order/GetOrders/${vm.saleInfo.EmpID}?status=${vm.searchBox.status}&from=${vm.searchBox.from}&to=${vm.searchBox.to}&keyword=${vm.searchBox.keyword}`;
-      vm.$store.commit("ISLOADING", true);
-      vm.$http
-        .get(url)
-        .then((res) => {
-          if (res.data.Data.length === 0) {
-            vm.$notify({
-              title: "提示",
-              message: "未搜尋到任何訂單",
-              type: "warning",
-              duration: 3500,
-            });
-            vm.$store.commit("ISLOADING", false);
-            return false;
-          }
-          vm.rows = res.data.Data;
-          vm.rows.forEach((item, index) => {
-            // 訂單項次
-            item.Seq = index + 1;
 
-            // 訂單日期格式
-            item.OrderDate = `${item.OrderDate.split("T")[0]} ${
-              item.OrderDate.split("T")[1]
-            }`;
+      vm.rows = OrderSearchData.Data;
+      vm.rows.forEach((item, index) => {
+        // 訂單項次
+        item.Seq = index + 1;
 
-            // 訂單狀態
-            switch (item.OrderStatus) {
-              case "Adopt":
-                item.OrderStatus = "通過";
-                break;
-              case "Cancel":
-                item.OrderStatus = "作廢";
-                break;
-              case "Reject":
-                item.OrderStatus = "否決";
-                break;
-              case "Signin":
-                item.OrderStatus = "簽核中";
-                break;
-              case "Draft":
-                item.OrderStatus = "草稿";
-                break;
-            }
-          });
+        if (!item.OrderDate.match("T")) {
+          // 訂單日期格式
+          item.OrderDate = `${item.OrderDate.split("T")[0]} ${
+            item.OrderDate.split("T")[1]
+          }`;
+        }
 
-          vm.rows.reverse();
-          vm.$store.commit("ISLOADING", false);
-        })
-        .catch((error) => {
-          vm.$store.commit("ISLOADING", false);
-          if (error.response.status === 400) {
-            vm.$notify({
-              title: "錯誤",
-              message: error.response.data,
-              type: "error",
-              duration: 3500,
-            });
-          }
-        });
+        // 訂單狀態
+        switch (item.OrderStatus) {
+          case "Adopt":
+            item.OrderStatus = "通過";
+            break;
+          case "Cancel":
+            item.OrderStatus = "作廢";
+            break;
+          case "Reject":
+            item.OrderStatus = "否決";
+            break;
+          case "Signin":
+            item.OrderStatus = "簽核中";
+            break;
+          case "Draft":
+            item.OrderStatus = "草稿";
+            break;
+        }
+      });
+
+      // let url = `${process.env.VUE_APP_APIPATH}/Inventory/Order/GetOrders/${vm.saleInfo.EmpID}?status=${vm.searchBox.status}&from=${vm.searchBox.from}&to=${vm.searchBox.to}&keyword=${vm.searchBox.keyword}`;
+      // vm.$store.commit("ISLOADING", true);
+      // vm.$http
+      //   .get(url)
+      //   .then((res) => {
+      //     if (res.data.Data.length === 0) {
+      //       vm.$notify({
+      //         title: "提示",
+      //         message: "未搜尋到任何訂單",
+      //         type: "warning",
+      //         duration: 3500,
+      //       });
+      //       vm.$store.commit("ISLOADING", false);
+      //       return false;
+      //     }
+      //     vm.rows = res.data.Data;
+      //     vm.rows.forEach((item, index) => {
+      //       // 訂單項次
+      //       item.Seq = index + 1;
+
+      //       // 訂單日期格式
+      //       item.OrderDate = `${item.OrderDate.split("T")[0]} ${
+      //         item.OrderDate.split("T")[1]
+      //       }`;
+
+      //       // 訂單狀態
+      //       switch (item.OrderStatus) {
+      //         case "Adopt":
+      //           item.OrderStatus = "通過";
+      //           break;
+      //         case "Cancel":
+      //           item.OrderStatus = "作廢";
+      //           break;
+      //         case "Reject":
+      //           item.OrderStatus = "否決";
+      //           break;
+      //         case "Signin":
+      //           item.OrderStatus = "簽核中";
+      //           break;
+      //         case "Draft":
+      //           item.OrderStatus = "草稿";
+      //           break;
+      //       }
+      //     });
+
+      //     vm.rows.reverse();
+      //     vm.$store.commit("ISLOADING", false);
+      //   })
+      //   .catch((error) => {
+      //     vm.$store.commit("ISLOADING", false);
+      //     if (error.response.status === 400) {
+      //       vm.$notify({
+      //         title: "錯誤",
+      //         message: error.response.data,
+      //         type: "error",
+      //         duration: 3500,
+      //       });
+      //     }
+      //   });
     },
 
     async openModal(customer, type) {
@@ -272,102 +311,201 @@ export default {
     // 取得訂單完整資訊
     viewDetailData(OrderId, type) {
       const vm = this;
-      let url = `${process.env.VUE_APP_APIPATH}/Inventory/Order/GetOrderDetail/${OrderId}`;
-      vm.$store.commit("ISLOADING", true);
-      vm.$http
-        .get(url)
-        .then((res) => {
-          vm.branchStore = res.data.Data.OrderStoreDetails;
-          vm.checkModalBranchData = []; // 底下用 push 的，所以每次打開都先清空資料
+      // let url = `${process.env.VUE_APP_APIPATH}/Inventory/Order/GetOrderDetail/${OrderId}`;
+      // vm.$store.commit("ISLOADING", true);
 
-          // 一拿到就排序，除了單店訂購的複製訂單其他都適用，因為取得 API 順序的時間差，所以被 push 後位置可能又會亂掉，所以單店訂購會在跳頁前在 sort 一次。
-          vm.sortProduct();
+      /* ----------------------------------------------- */
+      vm.branchStore =
+        OrderId === 2039
+          ? Data2.Data.OrderStoreDetails
+          : Data1.Data.OrderStoreDetails;
 
-          vm.branchStore.forEach((branch) => {
-            let subTotal = 0;
-            // 取得分店其他資訊
-            let branchOtherData = {
-              Memo: branch.BranchRemark, // 分店備註
-              ReceiveAddress: branch.ReceiveAddress, // 分店收貨地址
-              ReceiveContact: branch.ReceiveContact, // 收貨人聯絡電貨
-              ReceiveName: branch.ReceiveName, // 收獲人名稱
+      // vm.branchStore = res.data.Data.OrderStoreDetails;
+      vm.checkModalBranchData = []; // 底下用 push 的，所以每次打開都先清空資料
 
-              DeliveryDate: branch.DeliveryDate.split("T")[0],
-              DeliveryTime: branch.DeliveryTimeCode, // 這個是代號，所以進去購物車頁面時要去撈整包資料
-              CustomerId: branch.CustomerId, // 用這個去判斷要丟入哪間分店
+      // 一拿到就排序，除了單店訂購的複製訂單其他都適用，因為取得 API 順序的時間差，所以被 push 後位置可能又會亂掉，所以單店訂購會在跳頁前在 sort 一次。
+      vm.sortProduct();
 
-              InvoiceAddress: branch.InvoiceAddress, // 發票地址
-              AttachInvoice: branch.InvoiceAttached, // 隨貨附發票
-              InvoiceContact: branch.InvoiceContact, // 發票收件人電話
-              InvoiceName: branch.InvoiceName, // 發票收件人名稱
-              PayTermCode: branch.Payment, // 付款方式
-              TaxId: branch.TaxID, // 統一編號
-              NotTaxId: !branch.WithTaxID, // 不開統編，true 是開統編的意思
+      vm.branchStore.forEach((branch) => {
+        let subTotal = 0;
+        // 取得分店其他資訊
+        let branchOtherData = {
+          Memo: branch.BranchRemark, // 分店備註
+          ReceiveAddress: branch.ReceiveAddress, // 分店收貨地址
+          ReceiveContact: branch.ReceiveContact, // 收貨人聯絡電貨
+          ReceiveName: branch.ReceiveName, // 收獲人名稱
 
-              Subtotal:
-                Number(
-                  branch.ProductDtos.map(
-                    (price) => (subTotal += price.Subtotal)
-                  )
-                ) +
-                branch.Charge +
-                branch.Fare, // 分店總計
-            };
-            vm.checkModalBranchData.push(branchOtherData);
-          });
+          DeliveryDate: branch.DeliveryDate.split("T")[0],
+          DeliveryTime: branch.DeliveryTimeCode, // 這個是代號，所以進去購物車頁面時要去撈整包資料
+          CustomerId: branch.CustomerId, // 用這個去判斷要丟入哪間分店
 
-          vm.IsViewDetail = type === "viewDetail" ? true : false;
+          InvoiceAddress: branch.InvoiceAddress, // 發票地址
+          AttachInvoice: branch.InvoiceAttached, // 隨貨附發票
+          InvoiceContact: branch.InvoiceContact, // 發票收件人電話
+          InvoiceName: branch.InvoiceName, // 發票收件人名稱
+          PayTermCode: branch.Payment, // 付款方式
+          TaxId: branch.TaxID, // 統一編號
+          NotTaxId: !branch.WithTaxID, // 不開統編，true 是開統編的意思
 
-          // 觀看明細
-          if (vm.IsViewDetail) {
-            this.print("原始資料", vm.branchStore);
+          Subtotal:
+            Number(
+              branch.ProductDtos.map((price) => (subTotal += price.Subtotal))
+            ) +
+            branch.Charge +
+            branch.Fare, // 分店總計
+        };
+        vm.checkModalBranchData.push(branchOtherData);
+      });
 
-            vm.branchStore = vm.branchStore.map((branch) => {
-              return {
-                productData: branch.ProductDtos,
-                branchData: {
-                  TotalQty: branch.TotalQty,
-                  DeliveryDate: branch.DeliveryDate,
-                  DeliveryTimeCode: branch.DeliveryTimeCode,
-                  ReceiveName: branch.ReceiveName,
-                  ReceiveContact: branch.ReceiveContact,
-                  ReceiveAddress: branch.ReceiveAddress,
-                  Charge: branch.Charge,
-                  Fare: branch.Fare,
-                  BranchRemark: branch.BranchRemark,
-                  Payment: branch.Payment,
-                  InvoiceAttached: branch.InvoiceAttached,
-                  InvoiceContact: branch.InvoiceContact,
-                  InvoiceName: branch.InvoiceName,
-                  InvoiceAddress: branch.InvoiceAddress,
-                  TaxID: branch.TaxID,
-                  WithTaxID: !branch.WithTaxID,
-                },
-                store: {
-                  CustomerShtName: branch.CustomerName,
-                  CustomerId: branch.CustomerId,
-                  OrderId: branch.OrderId,
-                },
-              };
-            });
-            $("#readonlycheck").modal("show");
-            vm.$store.commit("ISLOADING", false);
-          }
-          // 複製訂單
-          else {
-            vm.tempSearchProduct = []; // 清除舊資料
+      vm.IsViewDetail = type === "viewDetail" ? true : false;
 
-            this.print("複製訂單資料", vm.branchStore);
-          }
-        })
-        .then(() => {
-          if (!vm.IsViewDetail) {
-            vm.getCustomerData();
-          }
-        })
-        .catch(() => {
-          vm.$store.commit("ISLOADING", false);
+      // 觀看明細
+      if (vm.IsViewDetail) {
+        this.print("原始資料", vm.branchStore);
+
+        vm.branchStore = vm.branchStore.map((branch) => {
+          return {
+            productData: branch.ProductDtos,
+            branchData: {
+              TotalQty: branch.TotalQty,
+              DeliveryDate: branch.DeliveryDate,
+              DeliveryTimeCode: branch.DeliveryTimeCode,
+              ReceiveName: branch.ReceiveName,
+              ReceiveContact: branch.ReceiveContact,
+              ReceiveAddress: branch.ReceiveAddress,
+              Charge: branch.Charge,
+              Fare: branch.Fare,
+              BranchRemark: branch.BranchRemark,
+              Payment: branch.Payment,
+              InvoiceAttached: branch.InvoiceAttached,
+              InvoiceContact: branch.InvoiceContact,
+              InvoiceName: branch.InvoiceName,
+              InvoiceAddress: branch.InvoiceAddress,
+              TaxID: branch.TaxID,
+              WithTaxID: !branch.WithTaxID,
+            },
+            store: {
+              CustomerShtName: branch.CustomerName,
+              CustomerId: branch.CustomerId,
+              OrderId: branch.OrderId,
+            },
+          };
         });
+        $("#readonlycheck").modal("show");
+        vm.$store.commit("ISLOADING", false);
+      }
+      // 複製訂單
+      else {
+        vm.tempSearchProduct = []; // 清除舊資料
+
+        this.$notify({
+          title: "提示",
+          message: "此功能關閉中，因為無法取得分店 API",
+          type: "warning",
+          duration: 3500,
+        });
+        // this.print("複製訂單資料", vm.branchStore);
+      }
+      /* ------------------------------------------------- */
+
+      // vm.$http
+      //   .get(url)
+      //   .then((res) => {
+
+      //     if(OrderId === 2039) {
+      //       vm.branchStore = Data2.Data
+      //     }
+      //     // vm.branchStore = res.data.Data.OrderStoreDetails;
+      //     vm.checkModalBranchData = []; // 底下用 push 的，所以每次打開都先清空資料
+
+      //     // 一拿到就排序，除了單店訂購的複製訂單其他都適用，因為取得 API 順序的時間差，所以被 push 後位置可能又會亂掉，所以單店訂購會在跳頁前在 sort 一次。
+      //     vm.sortProduct();
+
+      //     vm.branchStore.forEach((branch) => {
+      //       let subTotal = 0;
+      //       // 取得分店其他資訊
+      //       let branchOtherData = {
+      //         Memo: branch.BranchRemark, // 分店備註
+      //         ReceiveAddress: branch.ReceiveAddress, // 分店收貨地址
+      //         ReceiveContact: branch.ReceiveContact, // 收貨人聯絡電貨
+      //         ReceiveName: branch.ReceiveName, // 收獲人名稱
+
+      //         DeliveryDate: branch.DeliveryDate.split("T")[0],
+      //         DeliveryTime: branch.DeliveryTimeCode, // 這個是代號，所以進去購物車頁面時要去撈整包資料
+      //         CustomerId: branch.CustomerId, // 用這個去判斷要丟入哪間分店
+
+      //         InvoiceAddress: branch.InvoiceAddress, // 發票地址
+      //         AttachInvoice: branch.InvoiceAttached, // 隨貨附發票
+      //         InvoiceContact: branch.InvoiceContact, // 發票收件人電話
+      //         InvoiceName: branch.InvoiceName, // 發票收件人名稱
+      //         PayTermCode: branch.Payment, // 付款方式
+      //         TaxId: branch.TaxID, // 統一編號
+      //         NotTaxId: !branch.WithTaxID, // 不開統編，true 是開統編的意思
+
+      //         Subtotal:
+      //           Number(
+      //             branch.ProductDtos.map(
+      //               (price) => (subTotal += price.Subtotal)
+      //             )
+      //           ) +
+      //           branch.Charge +
+      //           branch.Fare, // 分店總計
+      //       };
+      //       vm.checkModalBranchData.push(branchOtherData);
+      //     });
+
+      //     vm.IsViewDetail = type === "viewDetail" ? true : false;
+
+      //     // 觀看明細
+      //     if (vm.IsViewDetail) {
+      //       this.print("原始資料", vm.branchStore);
+
+      //       vm.branchStore = vm.branchStore.map((branch) => {
+      //         return {
+      //           productData: branch.ProductDtos,
+      //           branchData: {
+      //             TotalQty: branch.TotalQty,
+      //             DeliveryDate: branch.DeliveryDate,
+      //             DeliveryTimeCode: branch.DeliveryTimeCode,
+      //             ReceiveName: branch.ReceiveName,
+      //             ReceiveContact: branch.ReceiveContact,
+      //             ReceiveAddress: branch.ReceiveAddress,
+      //             Charge: branch.Charge,
+      //             Fare: branch.Fare,
+      //             BranchRemark: branch.BranchRemark,
+      //             Payment: branch.Payment,
+      //             InvoiceAttached: branch.InvoiceAttached,
+      //             InvoiceContact: branch.InvoiceContact,
+      //             InvoiceName: branch.InvoiceName,
+      //             InvoiceAddress: branch.InvoiceAddress,
+      //             TaxID: branch.TaxID,
+      //             WithTaxID: !branch.WithTaxID,
+      //           },
+      //           store: {
+      //             CustomerShtName: branch.CustomerName,
+      //             CustomerId: branch.CustomerId,
+      //             OrderId: branch.OrderId,
+      //           },
+      //         };
+      //       });
+      //       $("#readonlycheck").modal("show");
+      //       vm.$store.commit("ISLOADING", false);
+      //     }
+      //     // 複製訂單
+      //     else {
+      //       vm.tempSearchProduct = []; // 清除舊資料
+
+      //       this.print("複製訂單資料", vm.branchStore);
+      //     }
+      //   })
+      //   .then(() => {
+      //     if (!vm.IsViewDetail) {
+      //       vm.getCustomerData();
+      //     }
+      //   })
+      //   .catch(() => {
+      //     vm.$store.commit("ISLOADING", false);
+      //   });
     },
 
     async getCustomerData() {
@@ -627,16 +765,18 @@ export default {
         keyword: "",
       };
     }
-    vm.$store.commit("ISLOADING", true);
+    // vm.$store.commit("ISLOADING", true);
     // 清空表單資料。
     vm.$store.commit("CLOSEALLORDERDATA");
 
-    vm.axios.all([getDeliveryTime(), vm.getAllData()]).then(
+    vm.allDeliveryTime = deliveryTime.Data;
+    vm.getAllData();
+    /*vm.axios.all([getDeliveryTime(), vm.getAllData()]).then(
       vm.axios.spread((allDeliveryTime) => {
         vm.allDeliveryTime = allDeliveryTime.data.Data;
         vm.$store.commit("ISLOADING", false);
       })
-    );
+    );*/
   },
 
   watch: {

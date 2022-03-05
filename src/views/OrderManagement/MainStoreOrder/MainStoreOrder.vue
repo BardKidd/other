@@ -59,7 +59,7 @@ import Pagination from "@/components/CommonComponent/Pagination.vue";
 import { mapState, mapGetters } from "vuex";
 
 // 未串接 API，所以改用 JSON 引入。
-import mainStoreOrderData from "@/data/Customers/MainStoreOrder.json";
+import customersData from "@/data/Customers/MainStoreOrder.json";
 
 export default {
   name: "MainStoreOrder",
@@ -96,7 +96,7 @@ export default {
       };*/
 
       const searchBox = {
-        mainStoreOrderData,
+        customersData,
         purchaseType: "Headquarter",
         IsDeactivated: "",
       };

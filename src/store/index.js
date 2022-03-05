@@ -286,12 +286,12 @@ export default new Vuex.Store({
 
       // commit("ISLOADING", true);
 
-      if (!payload.mainStoreOrderData.ErrorMessage) {
-        payload.mainStoreOrderData.Data.forEach((item) => {
+      if (!payload.customersData.ErrorMessage) {
+        payload.customersData.Data.forEach((item) => {
           item.StoreType = item.HQCode ? "Headquarter" : "Single";
           item.StoreTypeCN = item.HQCode ? "連鎖" : "單店";
         });
-        if (payload.mainStoreOrderData.Data.length === 0) {
+        if (payload.customersData.Data.length === 0) {
           Notification({
             title: "提示",
             message: "未搜尋到任何客戶",
@@ -299,7 +299,7 @@ export default new Vuex.Store({
             duration: 3500,
           });
         }
-        commit("CUSTOMERROWS", payload.mainStoreOrderData.Data);
+        commit("CUSTOMERROWS", payload.customersData.Data);
       }
 
       // await axios

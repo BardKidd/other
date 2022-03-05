@@ -87,12 +87,17 @@ import { shoppingCardProcessing } from "@/mixins/shoppingCardProcessing.js";
 // 包含 concatRow、checkInventory 函式
 import { OrderProcessing } from "@/mixins/orderProcessing.js";
 
-import {
-  getDeliveryTime,
-  getCharge,
-  getFreight,
-  getDeliveryDate,
-} from "@/commonAPI/api.js";
+// import {
+//   getDeliveryTime,
+//   getCharge,
+//   getFreight,
+//   getDeliveryDate,
+// } from "@/commonAPI/api.js";
+
+// 未串接 API 故直接引入 JSON。
+import deliveryTime from "@/data/Other/DeliveryTime.json";
+import deliveryRetentionDays from "@/data/Other/DeliveryRetentionDays.json";
+
 export default {
   name: "AllSingleStoreOrder",
   mixins: [shoppingCardProcessing, OrderProcessing],
@@ -107,8 +112,12 @@ export default {
       totalPRQuantity: 0, // 公關總量
 
       allDeliveryTime: [], // 送貨時段
-      allCharge: {}, // 手續費
-      allFreight: {}, // 運費
+      allCharge: {
+        Sales_Fees: { Costs: 30 },
+      }, // 手續費
+      allFreight: {
+        Sales_Fees: { Costs: 30 },
+      }, // 運費
       allDeliveryDate: {}, // 送貨保留日
 
       keyData: 1, // 偵測刪除後畫面是否有變動
@@ -184,9 +193,11 @@ export default {
         return false;
       }
 
-      let url = `${process.env.VUE_APP_APIPATH}/Inventory/Product/CheckProductInventory`;
+      $("#check").modal("show");
+
+      // let url = `${process.env.VUE_APP_APIPATH}/Inventory/Product/CheckProductInventory`;
       let tempRows = JSON.parse(JSON.stringify(vm.rows));
-      this.print("tempRows", tempRows);
+      // this.print("tempRows", tempRows);
       let sendData = [
         {
           ReceiveAddress: vm.customerData.ShippingAddress, // 預設帶出收貨人地址
@@ -199,29 +210,29 @@ export default {
       ];
       vm.$store.commit("SENDBRANCHSTORE", sendData);
 
-      vm.checkInventory();
-      this.print("跑完確認訂單邏輯?", "這裡");
+      // vm.checkInventory();
+      // this.print("跑完確認訂單邏輯?", "這裡");
 
-      vm.$nextTick(() => {
-        vm.$http
-          .post(url, vm.filterContented)
-          .then(() => {
-            vm.$store.commit("ISLOADING", false);
-            vm.$store.commit("PENDINGORDERCONCAT", vm.branchData);
-            $("#check").modal("show");
-          })
-          .catch((error) => {
-            vm.$store.commit("ISLOADING", false);
-            if (error.response.status === 400) {
-              vm.$message.error({
-                message: `<span>${error.response.data}<span>`,
-                dangerouslyUseHTMLString: true,
-                showClose: true,
-                duration: 10000,
-              });
-            }
-          });
-      });
+      // vm.$nextTick(() => {
+      //   vm.$http
+      //     .post(url, vm.filterContented)
+      //     .then(() => {
+      //       vm.$store.commit("ISLOADING", false);
+      //       vm.$store.commit("PENDINGORDERCONCAT", vm.branchData);
+      //       $("#check").modal("show");
+      //     })
+      //     .catch((error) => {
+      //       vm.$store.commit("ISLOADING", false);
+      //       if (error.response.status === 400) {
+      //         vm.$message.error({
+      //           message: `<span>${error.response.data}<span>`,
+      //           dangerouslyUseHTMLString: true,
+      //           showClose: true,
+      //           duration: 10000,
+      //         });
+      //       }
+      //     });
+      // });
     },
 
     // 全部訂購品項加總
@@ -274,24 +285,27 @@ export default {
       vm.OrderSearchFilter(vm.rows);
     }
 
-    vm.axios
-      .all([
-        getDeliveryTime(),
-        getCharge(vm.saleInfo.DeptCode),
-        getFreight(vm.saleInfo.DeptCode),
-        getDeliveryDate(vm.customerData.DeptID),
-      ])
-      .then(
-        vm.axios.spread(
-          (allDeliveryTime, allCharge, allFreight, allDeliveryDate) => {
-            vm.allDeliveryTime = allDeliveryTime.data.Data;
-            vm.allCharge = allCharge.data.Data;
-            vm.allFreight = allFreight.data.Data;
-            vm.allDeliveryDate = allDeliveryDate.data.Data;
-            vm.$store.commit("ISLOADING", false);
-          }
-        )
-      );
+    vm.allDeliveryTime = deliveryTime.Data;
+    vm.allDeliveryDate = deliveryRetentionDays.Data;
+
+    // vm.axios
+    //   .all([
+    //     getDeliveryTime(),
+    //     getCharge(vm.saleInfo.DeptCode),
+    //     getFreight(vm.saleInfo.DeptCode),
+    //     getDeliveryDate(vm.customerData.DeptID),
+    //   ])
+    //   .then(
+    //     vm.axios.spread(
+    //       (allDeliveryTime, allCharge, allFreight, allDeliveryDate) => {
+    //         vm.allDeliveryTime = allDeliveryTime.data.Data;
+    //         vm.allCharge = allCharge.data.Data;
+    //         vm.allFreight = allFreight.data.Data;
+    //         vm.allDeliveryDate = allDeliveryDate.data.Data;
+    //         vm.$store.commit("ISLOADING", false);
+    //       }
+    //     )
+    //   );
   },
   watch: {
     orderRows(n) {

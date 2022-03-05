@@ -57,6 +57,10 @@ import Pagination from "@/components/CommonComponent/Pagination.vue";
 import { commonFunction } from "@/mixins/commonFunction.js";
 import CitySearch from "@/components/CommonComponent/CitySearch.vue";
 import { mapState, mapGetters } from "vuex";
+
+// 未串接 API，所以改用 JSON 引入。
+import customersData from "@/data/Customers/SingleStoreOrder.json";
+
 export default {
   name: "SingleStoreOrder",
   mixins: [commonFunction],
@@ -82,11 +86,17 @@ export default {
     },
 
     // 搜尋
-    searchCustomer(searchBox) {
+    searchCustomer(/*searchBox*/) {
       const vm = this;
 
-      searchBox = {
-        ...searchBox,
+      // searchBox = {
+      //   ...searchBox,
+      //   purchaseType: "Single",
+      //   IsDeactivated: "",
+      // };
+
+      const searchBox = {
+        customersData,
         purchaseType: "Single",
         IsDeactivated: "",
       };
@@ -116,7 +126,7 @@ export default {
     vm.$store.commit("HEADER", "單店訂單作業");
     vm.$store.commit("ISWELCOME", true);
     vm.$store.commit("ISGOBACK", false);
-    vm.$store.commit("ISLOADING", true);
+    // vm.$store.commit("ISLOADING", true);
     localStorage.setItem("IsHeadquarterStorder", false); // 是否為總店訂購
     // 清空表單資料。
     vm.$store.commit("CLOSEALLORDERDATA");

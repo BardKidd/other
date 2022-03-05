@@ -8,9 +8,7 @@
     aria-hidden="true"
   >
     <div
-      class="
-        modal-dialog modal-dialog-scrollable modal-lg modal-dialog-centered
-      "
+      class="modal-dialog modal-dialog-scrollable modal-lg modal-dialog-centered"
     >
       <section class="modal-content">
         <div class="modal-body p-0 overflow-hidden">
@@ -255,13 +253,7 @@
                   </div>
                   <div class="table-wrap">
                     <table
-                      class="
-                        common-datatable
-                        datatable
-                        stripe
-                        order-column
-                        w-100
-                      "
+                      class="common-datatable datatable stripe order-column w-100"
                     >
                       <thead>
                         <tr>
@@ -597,8 +589,11 @@
 
 <script>
 import { OrderProcessing } from "@/mixins/orderProcessing.js";
-import { getPayTerm } from "@/commonAPI/api.js";
+// import { getPayTerm } from "@/commonAPI/api.js";
 import { mapState } from "vuex";
+
+// 未串接 API 所以直接引入 JSON 檔。
+import payTerm from "@/data/Other/PayTerm.json";
 
 /* global $ */
 export default {
@@ -635,11 +630,12 @@ export default {
   mounted() {
     const vm = this;
     vm.$store.commit("ISLOADING", true);
-    vm.axios.all([getPayTerm()]).then(
-      vm.axios.spread((allPayTerm) => {
-        vm.allPayTerm = allPayTerm.data.Data;
-      })
-    );
+    vm.allPayTerm = payTerm.Data;
+    // vm.axios.all([getPayTerm()]).then(
+    //   vm.axios.spread((allPayTerm) => {
+    //     vm.allPayTerm = allPayTerm.data.Data;
+    //   })
+    // );
     vm.$store.commit("ISLOADING", false);
   },
   watch: {
@@ -690,8 +686,9 @@ export default {
         vm.total += branch.branchData.Subtotal;
 
         // 送貨日期
-        branch.branchData.DeliveryDate =
-          branch.branchData.DeliveryDate.split("T")[0];
+        branch.branchData.DeliveryDate = branch.branchData.DeliveryDate.split(
+          "T"
+        )[0];
 
         // 送貨時段中文
         branch.branchData.DeliveryTimeCode = vm.DeliveryTime.find((item) => {
