@@ -201,7 +201,20 @@ import CustomerForm from "@/views/CustomerData/CustomerForm.vue";
 import Pagination from "@/components/CommonComponent/Pagination.vue";
 import CitySearch from "@/components/CommonComponent/CitySearch.vue";
 import { mapState, mapGetters } from "vuex";
-import { getAllCity, getPayTerm } from "@/commonAPI/api.js";
+// import { getAllCity, getPayTerm } from "@/commonAPI/api.js";
+
+//未串接 API，故引入 JSON 檔。
+import payTermData from "@/data/Other/PayTerm.json";
+import customerTypeData from "@/data/Other/CustomerType.json";
+import deptsData from "@/data/Other/Depts.json";
+import salesData from "@/data/Other/Sales.json";
+import bankData from "@/data/Other/Banks.json";
+import CMSMR from "@/data/Other/CMSMR.json";
+import CMSMR1 from "@/data/Other/CMSMR1.json";
+import CMSMR2 from "@/data/Other/CMSMR2.json";
+import cityData from "@/data/Other/CitySearch.json";
+
+import customersData from "@/data/Other/Customers.json";
 
 export default {
   name: "CustomerData",
@@ -227,18 +240,24 @@ export default {
     };
   },
   methods: {
-    searchCustomer(searchBox) {
+    searchCustomer(/*searchBox*/) {
       const vm = this;
       // 更新資料後除新撈資料時是 undefined。
-      if (searchBox?.city === undefined) {
-        searchBox = {
-          city: vm.$refs.searchBox.searchBox.city,
-          district: vm.$refs.searchBox.searchBox.district,
-          keyword: vm.$refs.searchBox.searchBox.keyword,
-        };
-      }
-      searchBox = {
-        ...searchBox,
+      // if (searchBox?.city === undefined) {
+      //   searchBox = {
+      //     city: vm.$refs.searchBox.searchBox.city,
+      //     district: vm.$refs.searchBox.searchBox.district,
+      //     keyword: vm.$refs.searchBox.searchBox.keyword,
+      //   };
+      // }
+      // searchBox = {
+      //   ...searchBox,
+      //   purchaseType: "",
+      //   IsDeactivated: vm.status,
+      // };
+
+      const searchBox = {
+        customersData,
         purchaseType: "",
         IsDeactivated: vm.status,
       };
@@ -342,42 +361,63 @@ export default {
     // 需要先取得交易對象類別，才能將類別代碼傳入
     getTradingPartnersInfo(type) {
       const vm = this;
-      const url = `${process.env.VUE_APP_APIPATH}/User/Customer/GetCMSMR/${type}`;
-      vm.$http
-        .get(url)
-        .then((res) => {
-          switch (type) {
-            case "1":
-              vm.allWays = res.data.Data;
-              vm.allWays = vm.allWays.map((type) => {
-                return {
-                  ...type,
-                  CodeID: type.CodeID.trim(),
-                };
-              });
-              break;
-            case "2":
-              vm.allTypes = res.data.Data;
-              vm.allTypes = vm.allTypes.map((type) => {
-                return {
-                  ...type,
-                  CodeID: type.CodeID.trim(),
-                };
-              });
-              break;
-          }
-        })
-        .catch((error) => {
-          vm.$store.commit("ISLOADING", false);
-          if (error.response.status === 400) {
-            vm.$notify({
-              title: "錯誤",
-              message: "取得交易對象類別錯誤",
-              type: "error",
-              duration: 3500,
-            });
-          }
-        });
+      switch (type) {
+        case "1":
+          vm.allWays = CMSMR1.Data;
+          vm.allWays = vm.allWays.map((type) => {
+            return {
+              ...type,
+              CodeID: type.CodeID.trim(),
+            };
+          });
+          break;
+        case "2":
+          vm.allTypes = CMSMR2.Data;
+          vm.allTypes = vm.allTypes.map((type) => {
+            return {
+              ...type,
+              CodeID: type.CodeID.trim(),
+            };
+          });
+          break;
+      }
+
+      // const url = `${process.env.VUE_APP_APIPATH}/User/Customer/GetCMSMR/${type}`;
+      // vm.$http
+      //   .get(url)
+      //   .then((res) => {
+      //     switch (type) {
+      //       case "1":
+      //         vm.allWays = res.data.Data;
+      //         vm.allWays = vm.allWays.map((type) => {
+      //           return {
+      //             ...type,
+      //             CodeID: type.CodeID.trim(),
+      //           };
+      //         });
+      //         break;
+      //       case "2":
+      //         vm.allTypes = res.data.Data;
+      //         vm.allTypes = vm.allTypes.map((type) => {
+      //           return {
+      //             ...type,
+      //             CodeID: type.CodeID.trim(),
+      //           };
+      //         });
+      //         break;
+      //     }
+      //   })
+      //   .catch((error) => {
+      //     vm.$store.commit("ISLOADING", false);
+      //     if (error.response.status === 400) {
+      //       vm.$notify({
+      //         title: "錯誤",
+      //         message: "取得交易對象類別錯誤",
+      //         type: "error",
+      //         duration: 3500,
+      //       });
+      //     }
+      //   });
     },
   },
   mounted() {
@@ -385,106 +425,157 @@ export default {
     vm.$store.commit("HEADER", "客戶資訊");
     vm.$store.commit("ISWELCOME", true);
     vm.$store.commit("ISGOBACK", false);
-    vm.$store.commit("ISLOADING", true);
 
-    vm.axios
-      .all([
-        getAllCity(),
-        getPayTerm(),
-        vm.getCustomerTypes(),
-        vm.getDepts(),
-        vm.getSales(),
-        vm.getBanks(),
-        vm.getTradingPartnersType(),
-        vm.getHeadquarter(),
-      ])
-      .then(
-        vm.axios.spread(
-          (
-            allCity,
-            allPayTerm,
-            allCustomerTypes,
-            allDepts,
-            allSales,
-            allBanks,
-            allTradingPartnersType,
-            allHeadquarter
-          ) => {
-            if (!allCity.data.ErrorMessage) {
-              let cityName = Object.keys(allCity.data.Data.CityDistricts);
-              let districts = Object.values(allCity.data.Data.CityDistricts);
+    /*---------------------------------------------------------------- */
 
-              for (let i = 0; i < 99; i++) {
-                if (!cityName[i]) break;
+    let cityName = Object.keys(cityData.Data.CityDistricts);
+    let districts = Object.values(cityData.Data.CityDistricts);
 
-                // 每個鄉鎮加入縣市的屬性
-                districts[i].forEach((dis) => {
-                  dis.CityName = cityName[i];
-                });
-              }
-              let mergeCity = districts;
+    for (let i = 0; i < 99; i++) {
+      if (!cityName[i]) break;
 
-              vm.allPostalCodes = Object.values(mergeCity).flat(Infinity);
-            }
+      // 每個鄉鎮加入縣市的屬性
+      districts[i].forEach((dis) => {
+        dis.CityName = cityName[i];
+      });
+    }
+    let mergeCity = districts;
 
-            if (!allPayTerm.data.ErrorMessage) {
-              vm.allPayTerm = allPayTerm.data.Data;
-            }
+    vm.allPostalCodes = Object.values(mergeCity).flat(Infinity);
 
-            if (!allCustomerTypes.data.ErrorMessage) {
-              vm.allCustomerTypes = allCustomerTypes.data.Data;
-            }
+    vm.allPayTerm = payTermData.Data;
+    vm.allCustomerTypes = customerTypeData.Data;
+    vm.allDepts = deptsData.Data;
+    vm.allDepts = vm.allDepts.map((dept) => {
+      return {
+        ...dept,
+        DeptID: dept.DeptID.trim(),
+      };
+    });
 
-            if (!allDepts.data.ErrorMessage) {
-              vm.allDepts = allDepts.data.Data;
-              vm.allDepts = vm.allDepts.map((dept) => {
-                return {
-                  ...dept,
-                  DeptID: dept.DeptID.trim(),
-                };
-              });
-            }
+    vm.allSales = salesData.Data;
+    vm.allBanks = bankData.Data;
+    vm.allBanks = vm.allBanks.map((bank) => {
+      return {
+        ...bank,
+        customerLabel: `${bank.BankName}(${bank.BankID.trim()})`,
+        BankID: bank.BankID.trim(),
+      };
+    });
 
-            if (!allSales.data.ErrorMessage) {
-              vm.allSales = allSales.data.Data;
-            }
+    vm.allTradingPartnersType = CMSMR.Data;
 
-            if (!allBanks.data.ErrorMessage) {
-              vm.allBanks = allBanks.data.Data;
-              vm.allBanks = vm.allBanks.map((bank) => {
-                return {
-                  ...bank,
-                  customerLabel: `${bank.BankName}(${bank.BankID.trim()})`,
-                  BankID: bank.BankID.trim(),
-                };
-              });
-            }
+    let wayType = vm.allTradingPartnersType.find((item) => {
+      return item.TypeName === "通路";
+    });
+    let typeType = vm.allTradingPartnersType.find((item) => {
+      return item.TypeName === "型態";
+    });
+    vm.getTradingPartnersInfo(wayType.TypeId);
+    vm.getTradingPartnersInfo(typeType.TypeId);
 
-            if (!allTradingPartnersType.data.ErrorMessage) {
-              vm.allTradingPartnersType = allTradingPartnersType.data.Data;
+    /*---------------------------------------------------------------- */
 
-              let wayType = vm.allTradingPartnersType.find((item) => {
-                return item.TypeName === "通路";
-              });
-              let typeType = vm.allTradingPartnersType.find((item) => {
-                return item.TypeName === "型態";
-              });
-              vm.getTradingPartnersInfo(wayType.TypeId);
-              vm.getTradingPartnersInfo(typeType.TypeId);
-            }
+    // vm.$store.commit("ISLOADING", true);
 
-            if (!allHeadquarter.data.ErrorMessage) {
-              vm.allHeadquarter = allHeadquarter.data.Data;
-              vm.allHeadquarter = vm.allHeadquarter.map((headquarter) => {
-                return {
-                  CustomerShtName: headquarter.CustomerShtName,
-                  CustomerID: headquarter.CustomerID,
-                };
-              });
-            }
-          }
-        )
-      );
+    // vm.axios
+    //   .all([
+    //     getAllCity(),
+    //     getPayTerm(),
+    //     vm.getCustomerTypes(),
+    //     vm.getDepts(),
+    //     vm.getSales(),
+    //     vm.getBanks(),
+    //     vm.getTradingPartnersType(),
+    //     vm.getHeadquarter(),
+    //   ])
+    //   .then(
+    //     vm.axios.spread(
+    //       (
+    //         allCity,
+    //         allPayTerm,
+    //         allCustomerTypes,
+    //         allDepts,
+    //         allSales,
+    //         allBanks,
+    //         allTradingPartnersType,
+    //         allHeadquarter
+    //       ) => {
+    //         if (!allCity.data.ErrorMessage) {
+    //           let cityName = Object.keys(allCity.data.Data.CityDistricts);
+    //           let districts = Object.values(allCity.data.Data.CityDistricts);
+
+    //           for (let i = 0; i < 99; i++) {
+    //             if (!cityName[i]) break;
+
+    //             // 每個鄉鎮加入縣市的屬性
+    //             districts[i].forEach((dis) => {
+    //               dis.CityName = cityName[i];
+    //             });
+    //           }
+    //           let mergeCity = districts;
+
+    //           vm.allPostalCodes = Object.values(mergeCity).flat(Infinity);
+    //         }
+
+    //         if (!allPayTerm.data.ErrorMessage) {
+    //           vm.allPayTerm = allPayTerm.data.Data;
+    //         }
+
+    //         if (!allCustomerTypes.data.ErrorMessage) {
+    //           vm.allCustomerTypes = allCustomerTypes.data.Data;
+    //         }
+
+    //         if (!allDepts.data.ErrorMessage) {
+    //           vm.allDepts = allDepts.data.Data;
+    //           vm.allDepts = vm.allDepts.map((dept) => {
+    //             return {
+    //               ...dept,
+    //               DeptID: dept.DeptID.trim(),
+    //             };
+    //           });
+    //         }
+
+    //         if (!allSales.data.ErrorMessage) {
+    //           vm.allSales = allSales.data.Data;
+    //         }
+
+    //         if (!allBanks.data.ErrorMessage) {
+    //           vm.allBanks = allBanks.data.Data;
+    //           vm.allBanks = vm.allBanks.map((bank) => {
+    //             return {
+    //               ...bank,
+    //               customerLabel: `${bank.BankName}(${bank.BankID.trim()})`,
+    //               BankID: bank.BankID.trim(),
+    //             };
+    //           });
+    //         }
+
+    //         if (!allTradingPartnersType.data.ErrorMessage) {
+    //           vm.allTradingPartnersType = allTradingPartnersType.data.Data;
+
+    //           let wayType = vm.allTradingPartnersType.find((item) => {
+    //             return item.TypeName === "通路";
+    //           });
+    //           let typeType = vm.allTradingPartnersType.find((item) => {
+    //             return item.TypeName === "型態";
+    //           });
+    //           vm.getTradingPartnersInfo(wayType.TypeId);
+    //           vm.getTradingPartnersInfo(typeType.TypeId);
+    //         }
+
+    //         if (!allHeadquarter.data.ErrorMessage) {
+    //           vm.allHeadquarter = allHeadquarter.data.Data;
+    //           vm.allHeadquarter = vm.allHeadquarter.map((headquarter) => {
+    //             return {
+    //               CustomerShtName: headquarter.CustomerShtName,
+    //               CustomerID: headquarter.CustomerID,
+    //             };
+    //           });
+    //         }
+    //       }
+    //     )
+    //   );
 
     // 清空分店和下單 Model 的資料。
     vm.$store.commit("CLOSEALLORDERDATA");

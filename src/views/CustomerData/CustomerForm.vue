@@ -273,7 +273,8 @@
                 <div class="field-name">業務代碼</div>
                 <VSelect
                   :getOptionLabel="
-                    (opt) => `${opt.Sales_Zone}(${opt.ERP_SalesCode})`
+                    (opt) =>
+                      `${opt.EmpCName}-${opt.ERP_SalesCode}(${opt.Sales_Zone})`
                   "
                   placeholder="請選擇業務代碼"
                   valueFormat="object"
