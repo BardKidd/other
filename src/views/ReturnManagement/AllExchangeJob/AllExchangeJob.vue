@@ -142,9 +142,15 @@ import { OrderProcessing } from "@/mixins/orderProcessing.js";
 // 包含 concatProduct 函式
 import { AfterSaleProcessing } from "@/mixins/afterSaleProcessing.js";
 
-import { getPayTerm, getReturnReason } from "@/commonAPI/api.js";
+// import { getPayTerm, getReturnReason } from "@/commonAPI/api.js";
 
 import { mapGetters } from "vuex";
+
+// 未串接 API，所以引入 JSON 檔。
+import returnProduct from "@/data/Product/ReturnProductSearch.json";
+import exchangeProduct from "@/data/Product/ExchangeProductsSearch.json";
+import returnReason from "@/data/Other/ReturnReason.json";
+import payTerm from "@/data/Other/PayTerm.json";
 
 export default {
   name: "AllExchangeJob",
@@ -215,150 +221,173 @@ export default {
     // 檢查庫存量
     checkInventory(type) {
       const vm = this;
-      const url = `${process.env.VUE_APP_APIPATH}/Inventory/Product/CheckProductInventory`;
-      vm.$store.commit("ISLOADING", true);
+      if (type === "getMerge") {
+        // vm.keyData += 1; // 畫面刷新完才展開
+        setTimeout(() => {
+          $("#commoncheckmodal").modal("show");
+        }, 50);
+      } else {
+        vm.sendOrder();
+      }
 
-      let result = vm.exchangeRows.map((item) => {
-        return {
-          ProductId: item.ItemNo.trim(),
-          WhseID: item.WhseID.trim(),
-          IsPending: false,
-          PendingQuantity: 0,
-          PurchaseQuantity: item.cardQuantity,
-        };
-      });
-      let sendData = {
-        Customers: [
-          {
-            CustomerId: vm.customer.CustomerID,
-            Products: result,
-          },
-        ],
-      };
-      vm.$http
-        .post(url, sendData)
-        .then((res) => {
-          vm.$store.commit("ISLOADING", false);
-          if (res.data.Status >= 200 && res.data.Status < 300) {
-            if (res.data.ErrorMessage) {
-              vm.$message.error({
-                message: `<span>${res.data.ErrorMessage}<span>`,
-                dangerouslyUseHTMLString: true,
-                showClose: true,
-                duration: 10000,
-              });
-              return false;
-            }
+      // const url = `${process.env.VUE_APP_APIPATH}/Inventory/Product/CheckProductInventory`;
+      // vm.$store.commit("ISLOADING", true);
 
-            if (type === "getMerge") {
-              vm.keyData += 1; // 畫面刷新完才展開
-              setTimeout(() => {
-                $("#commoncheckmodal").modal("show");
-              }, 50);
-            } else {
-              vm.sendOrder();
-            }
-          }
-        })
-        .catch((error) => {
-          vm.$store.commit("ISLOADING", false);
-          if (error.response.status === 400) {
-            vm.$notify({
-              title: "錯誤",
-              message: error.response.data,
-              type: "error",
-              duration: 3500,
-            });
-          }
-        });
+      // let result = vm.exchangeRows.map((item) => {
+      //   return {
+      //     ProductId: item.ItemNo.trim(),
+      //     WhseID: item.WhseID.trim(),
+      //     IsPending: false,
+      //     PendingQuantity: 0,
+      //     PurchaseQuantity: item.cardQuantity,
+      //   };
+      // });
+      // let sendData = {
+      //   Customers: [
+      //     {
+      //       CustomerId: vm.customer.CustomerID,
+      //       Products: result,
+      //     },
+      //   ],
+      // };
+      // vm.$http
+      //   .post(url, sendData)
+      //   .then((res) => {
+      //     vm.$store.commit("ISLOADING", false);
+      //     if (res.data.Status >= 200 && res.data.Status < 300) {
+      //       if (res.data.ErrorMessage) {
+      //         vm.$message.error({
+      //           message: `<span>${res.data.ErrorMessage}<span>`,
+      //           dangerouslyUseHTMLString: true,
+      //           showClose: true,
+      //           duration: 10000,
+      //         });
+      //         return false;
+      //       }
+
+      //       if (type === "getMerge") {
+      //         vm.keyData += 1; // 畫面刷新完才展開
+      //         setTimeout(() => {
+      //           $("#commoncheckmodal").modal("show");
+      //         }, 50);
+      //       } else {
+      //         vm.sendOrder();
+      //       }
+      //     }
+      //   })
+      //   .catch((error) => {
+      //     vm.$store.commit("ISLOADING", false);
+      //     if (error.response.status === 400) {
+      //       vm.$notify({
+      //         title: "錯誤",
+      //         message: error.response.data,
+      //         type: "error",
+      //         duration: 3500,
+      //       });
+      //     }
+      //   });
     },
 
     sendOrder() {
       const vm = this;
-      const url = `${process.env.VUE_APP_APIPATH}/Inventory/Return/ReturnProducts`;
-      let ReturnProducts = vm.returnRows.map((item) => {
-        return {
-          ProductId: item.ProductId,
-          ProductName: item.ProductName,
-          Variant: item.Specification,
-          ReturnQty: Number(item.cardQuantity),
-          Uom: item.UOM,
-          UnitPrice: parseInt(item.UnitPrice) || 0,
-          GiftSpareQty: 0,
-        };
-      });
-      let ExchangeProducts = vm.exchangeRows.map((item) => {
-        return {
-          ProductId: item.ItemNo,
-          ProductName: item.ItemName,
-          Variant: item.Specification,
-          ExchangeQty: item.cardQuantity,
-          Uom: item.UOM,
-          UnitPrice: parseInt(item.UnitPrice),
-          WhseId: item.WhseID,
-        };
-      });
-      let ReturnExchange = {
-        NotTaxId: vm.otherData2.NotTaxId,
-        InvoiceTaxId: vm.otherData2.TaxId,
-        InvoiceAttached: vm.otherData2.AttachInvoice,
-        InvoiceName: vm.otherData2.InvoiceName,
-        InvoiceContact: vm.otherData2.InvoiceContact,
-        InvoiceAddress: vm.otherData2.InvoiceAddress,
-        ExchangeProducts,
-      };
-      let sendData = {
-        SalesId: vm.saleInfo.EmpID,
-        CustomerId: vm.customer.CustomerID,
-        CustomerDeptId: vm.customer.DeptID,
-        TaxId: vm.customer.TaxID,
-        CustomerFullName: vm.customer.CustomerFullName,
-        Contact: vm.customer.Contact,
-        ContactTel: vm.customer.TEL_NO,
-        PaymentTermsCode: vm.otherData2.PaymentTerms,
-        Memo: vm.otherData1.Memo,
-        ReturnReasonCode: vm.otherData1.RtnReasons,
-        ReturnContact: vm.otherData1.ReceiveName,
-        ReturnContactTel: vm.otherData1.ReceiveContact,
-        ReturnAddress: vm.otherData1.ReceiveAddress,
-        CreateUser: localStorage.getItem("uofUserGuid"),
-        ReturnExchange,
-        ReturnProducts,
-      };
-      vm.$store.commit("ISLOADING", true);
-      vm.$http
-        .post(url, sendData)
-        .then((res) => {
-          vm.$store.commit("ISLOADING", false);
-          if (res.data.Status >= 200 && res.data.Status < 300) {
-            vm.$notify({
-              title: "成功",
-              message: "退換貨單送出成功",
-              type: "success",
-              duration: 3500,
-            });
-            vm.$router.push({
-              name: "OrderFinish",
-              params: { text: "換貨單" },
-            });
-          } else {
-            vm.$notify({
-              title: "錯誤",
-              message: res.data.ErrorMessage,
-              type: "error",
-              duration: 3500,
-            });
-          }
-        })
-        .catch((error) => {
-          vm.$store.commit("ISLOADING", false);
-          vm.$notify({
-            title: "錯誤",
-            message: error.response.data,
-            type: "error",
-            duration: 3500,
-          });
+
+      if (vm.otherData2.PaymentTerms && vm.otherData1.RtnReasons) {
+        vm.$notify({
+          title: "成功",
+          message: "退換貨單送出成功",
+          type: "success",
+          duration: 3500,
         });
+        vm.$router.push({
+          name: "OrderFinish",
+          params: { text: "換貨單" },
+        });
+      }
+
+      // const url = `${process.env.VUE_APP_APIPATH}/Inventory/Return/ReturnProducts`;
+      // let ReturnProducts = vm.returnRows.map((item) => {
+      //   return {
+      //     ProductId: item.ProductId,
+      //     ProductName: item.ProductName,
+      //     Variant: item.Specification,
+      //     ReturnQty: Number(item.cardQuantity),
+      //     Uom: item.UOM,
+      //     UnitPrice: parseInt(item.UnitPrice) || 0,
+      //     GiftSpareQty: 0,
+      //   };
+      // });
+      // let ExchangeProducts = vm.exchangeRows.map((item) => {
+      //   return {
+      //     ProductId: item.ItemNo,
+      //     ProductName: item.ItemName,
+      //     Variant: item.Specification,
+      //     ExchangeQty: item.cardQuantity,
+      //     Uom: item.UOM,
+      //     UnitPrice: parseInt(item.UnitPrice),
+      //     WhseId: item.WhseID,
+      //   };
+      // });
+      // let ReturnExchange = {
+      //   NotTaxId: vm.otherData2.NotTaxId,
+      //   InvoiceTaxId: vm.otherData2.TaxId,
+      //   InvoiceAttached: vm.otherData2.AttachInvoice,
+      //   InvoiceName: vm.otherData2.InvoiceName,
+      //   InvoiceContact: vm.otherData2.InvoiceContact,
+      //   InvoiceAddress: vm.otherData2.InvoiceAddress,
+      //   ExchangeProducts,
+      // };
+      // let sendData = {
+      //   SalesId: vm.saleInfo.EmpID,
+      //   CustomerId: vm.customer.CustomerID,
+      //   CustomerDeptId: vm.customer.DeptID,
+      //   TaxId: vm.customer.TaxID,
+      //   CustomerFullName: vm.customer.CustomerFullName,
+      //   Contact: vm.customer.Contact,
+      //   ContactTel: vm.customer.TEL_NO,
+      //   PaymentTermsCode: vm.otherData2.PaymentTerms,
+      //   Memo: vm.otherData1.Memo,
+      //   ReturnReasonCode: vm.otherData1.RtnReasons,
+      //   ReturnContact: vm.otherData1.ReceiveName,
+      //   ReturnContactTel: vm.otherData1.ReceiveContact,
+      //   ReturnAddress: vm.otherData1.ReceiveAddress,
+      //   CreateUser: localStorage.getItem("uofUserGuid"),
+      //   ReturnExchange,
+      //   ReturnProducts,
+      // };
+      // vm.$store.commit("ISLOADING", true);
+      // vm.$http
+      //   .post(url, sendData)
+      //   .then((res) => {
+      //     vm.$store.commit("ISLOADING", false);
+      //     if (res.data.Status >= 200 && res.data.Status < 300) {
+      //       vm.$notify({
+      //         title: "成功",
+      //         message: "退換貨單送出成功",
+      //         type: "success",
+      //         duration: 3500,
+      //       });
+      //       vm.$router.push({
+      //         name: "OrderFinish",
+      //         params: { text: "換貨單" },
+      //       });
+      //     } else {
+      //       vm.$notify({
+      //         title: "錯誤",
+      //         message: res.data.ErrorMessage,
+      //         type: "error",
+      //         duration: 3500,
+      //       });
+      //     }
+      //   })
+      //   .catch((error) => {
+      //     vm.$store.commit("ISLOADING", false);
+      //     vm.$notify({
+      //       title: "錯誤",
+      //       message: error.response.data,
+      //       type: "error",
+      //       duration: 3500,
+      //     });
+      //   });
     },
 
     // 新增品項
@@ -372,111 +401,155 @@ export default {
     // 搜尋出來的產品資訊
     searchData() {
       const vm = this;
-      let after = vm.$refs.AfterSaleModal.searchBox;
+      // let after = vm.$refs.AfterSaleModal.searchBox;
 
-      let productSeries = after.productSeries ? after.productSeries.Code : "";
-      let url = "";
+      // let productSeries = after.productSeries ? after.productSeries.Code : "";
+      // let url = "";
 
-      vm.$store.commit("ISLOADING", true);
+      // vm.$store.commit("ISLOADING", true);
       if (vm.currentTable === "return") {
-        url = `${process.env.VUE_APP_APIPATH}/Inventory/Return/GetReturnableProduct?customerId=${vm.customer.CustomerID}&productSeries=${productSeries}&productClass=${after.productType}&whseId=${after.WhseName}&keyword=${after.keyword}`;
+        // 取出不重複產品
+        let result = [];
 
-        vm.$http
-          .get(url)
-          .then((res) => {
-            if (!res.data.ErrorMessage) {
-              // 取出不重複產品
-              let result = [];
-
-              res.data.Data.some((product) => {
-                let hasFlag = false;
-                vm.returnRows.some((confirm) => {
-                  // 沒有庫別，所以只能這樣判斷
-                  if (
-                    product.ProductId === confirm.ProductId &&
-                    product.ProductName === confirm.ProductName &&
-                    product.ReturnableQuantity > 0
-                  ) {
-                    hasFlag = true; // 相同的話打開 flag，不讓他 push。
-                    return true;
-                  }
-                });
-                if (!hasFlag) {
-                  result.push(product);
-                }
-              });
-              vm.tempProduct = result;
-            } else {
-              vm.$notify({
-                title: "錯誤",
-                message: res.data.ErrorMessage,
-                type: "error",
-                duration: 3500,
-              });
+        returnProduct.Data.some((product) => {
+          let hasFlag = false;
+          vm.returnRows.some((confirm) => {
+            // 沒有庫別，所以只能這樣判斷
+            if (
+              product.ProductId === confirm.ProductId &&
+              product.ProductName === confirm.ProductName &&
+              product.ReturnableQuantity > 0
+            ) {
+              hasFlag = true; // 相同的話打開 flag，不讓他 push。
+              return true;
             }
-            vm.$store.commit("ISLOADING", false);
-          })
-          .catch(() => {
-            vm.$store.commit("ISLOADING", false);
           });
+          if (!hasFlag) {
+            result.push(product);
+          }
+        });
+        vm.tempProduct = result;
+
+        // url = `${process.env.VUE_APP_APIPATH}/Inventory/Return/GetReturnableProduct?customerId=${vm.customer.CustomerID}&productSeries=${productSeries}&productClass=${after.productType}&whseId=${after.WhseName}&keyword=${after.keyword}`;
+
+        // vm.$http
+        //   .get(url)
+        //   .then((res) => {
+        //     if (!res.data.ErrorMessage) {
+        //       // 取出不重複產品
+        //       let result = [];
+
+        //       res.data.Data.some((product) => {
+        //         let hasFlag = false;
+        //         vm.returnRows.some((confirm) => {
+        //           // 沒有庫別，所以只能這樣判斷
+        //           if (
+        //             product.ProductId === confirm.ProductId &&
+        //             product.ProductName === confirm.ProductName &&
+        //             product.ReturnableQuantity > 0
+        //           ) {
+        //             hasFlag = true; // 相同的話打開 flag，不讓他 push。
+        //             return true;
+        //           }
+        //         });
+        //         if (!hasFlag) {
+        //           result.push(product);
+        //         }
+        //       });
+        //       vm.tempProduct = result;
+        //     } else {
+        //       vm.$notify({
+        //         title: "錯誤",
+        //         message: res.data.ErrorMessage,
+        //         type: "error",
+        //         duration: 3500,
+        //       });
+        //     }
+        //     vm.$store.commit("ISLOADING", false);
+        // })
+        // .catch(() => {
+        //   vm.$store.commit("ISLOADING", false);
+        // });
       } else if (vm.currentTable === "exchange") {
-        if (!vm.customer.DeptID) {
-          vm.$notify({
-            title: "錯誤",
-            message: "此客戶暫無部門 ID",
-            type: "error",
-            duration: 3500,
-          });
-          vm.$store.commit("ISLOADING", false);
-          return false;
-        }
-        url = `${process.env.VUE_APP_APIPATH}/Inventory/Product/GetProducts?salesDeptId=${vm.saleInfo.DeptCode}&productSeries=${productSeries}&productClass=${after.productType}&whseId=${after.WhseName}&keyword=${after.keyword}`;
-        vm.$http
-          .get(url)
-          .then((res) => {
-            if (res.data.Data.length === 0) {
-              vm.$notify({
-                title: "提示",
-                message: "未搜尋到任何產品",
-                type: "warning",
-                duration: 3500,
-              });
-            }
-            if (!res.data.ErrorMessage) {
-              // 取出不重複產品
-              let result = [];
+        // 取出不重複產品
+        let result = [];
 
-              res.data.Data.some((product) => {
-                let hasFlag = false;
-                if (product.InvQty > 0) {
-                  vm.exchangeRows.some((confirm) => {
-                    if (
-                      product.ItemNo === confirm.ItemNo &&
-                      product.WhseID === confirm.WhseID
-                    ) {
-                      hasFlag = true; // 相同的話打開 flag，不讓他 push。
-                      return true;
-                    }
-                  });
-                  if (!hasFlag) {
-                    result.push(product);
-                  }
-                }
-              });
-              vm.tempExchangeProduct = result;
-            } else {
-              vm.$notify({
-                title: "錯誤",
-                message: res.data.ErrorMessage,
-                type: "error",
-                duration: 3500,
-              });
+        exchangeProduct.Data.some((product) => {
+          let hasFlag = false;
+          if (product.InvQty > 0) {
+            vm.exchangeRows.some((confirm) => {
+              if (
+                product.ItemNo === confirm.ItemNo &&
+                product.WhseID === confirm.WhseID
+              ) {
+                hasFlag = true; // 相同的話打開 flag，不讓他 push。
+                return true;
+              }
+            });
+            if (!hasFlag) {
+              result.push(product);
             }
-            vm.$store.commit("ISLOADING", false);
-          })
-          .catch(() => {
-            vm.$store.commit("ISLOADING", false);
-          });
+          }
+        });
+        vm.tempExchangeProduct = result;
+
+        // if (!vm.customer.DeptID) {
+        //   vm.$notify({
+        //     title: "錯誤",
+        //     message: "此客戶暫無部門 ID",
+        //     type: "error",
+        //     duration: 3500,
+        //   });
+        //   vm.$store.commit("ISLOADING", false);
+        //   return false;
+        // }
+        // url = `${process.env.VUE_APP_APIPATH}/Inventory/Product/GetProducts?salesDeptId=${vm.saleInfo.DeptCode}&productSeries=${productSeries}&productClass=${after.productType}&whseId=${after.WhseName}&keyword=${after.keyword}`;
+        // vm.$http
+        //   .get(url)
+        //   .then((res) => {
+        //     if (res.data.Data.length === 0) {
+        //       vm.$notify({
+        //         title: "提示",
+        //         message: "未搜尋到任何產品",
+        //         type: "warning",
+        //         duration: 3500,
+        //       });
+        //     }
+        //     if (!res.data.ErrorMessage) {
+        //       // 取出不重複產品
+        //       let result = [];
+
+        //       res.data.Data.some((product) => {
+        //         let hasFlag = false;
+        //         if (product.InvQty > 0) {
+        //           vm.exchangeRows.some((confirm) => {
+        //             if (
+        //               product.ItemNo === confirm.ItemNo &&
+        //               product.WhseID === confirm.WhseID
+        //             ) {
+        //               hasFlag = true; // 相同的話打開 flag，不讓他 push。
+        //               return true;
+        //             }
+        //           });
+        //           if (!hasFlag) {
+        //             result.push(product);
+        //           }
+        //         }
+        //       });
+        //       vm.tempExchangeProduct = result;
+        //     } else {
+        //       vm.$notify({
+        //         title: "錯誤",
+        //         message: res.data.ErrorMessage,
+        //         type: "error",
+        //         duration: 3500,
+        //       });
+        //     }
+        //     vm.$store.commit("ISLOADING", false);
+        //   })
+        //   .catch(() => {
+        //     vm.$store.commit("ISLOADING", false);
+        //   });
       }
     },
 
@@ -539,65 +612,73 @@ export default {
     },
 
     // 跟總店分店的取得付款方式寫法不太一樣
-    getUnitFormat(row) {
-      const vm = this;
-      let arr = [];
-      let obj = {};
-      row.forEach((product) => {
-        let tempObj = {
-          ProductId: product.ItemNo.trim(),
-          PayTermCode: vm.otherData2.PaymentTerms,
-          Quantity: product.cardQuantity ? product.cardQuantity : 1,
-        };
-        arr.push(tempObj);
-      });
-      obj = {
-        Products: arr,
-      };
+    // getUnitFormat(row) {
+    //   const vm = this;
+    //   let arr = [];
+    //   let obj = {};
+    //   row.forEach((product) => {
+    //     let tempObj = {
+    //       ProductId: product.ItemNo.trim(),
+    //       PayTermCode: vm.otherData2.PaymentTerms,
+    //       Quantity: product.cardQuantity ? product.cardQuantity : 1,
+    //     };
+    //     arr.push(tempObj);
+    //   });
+    //   obj = {
+    //     Products: arr,
+    //   };
 
-      return obj;
-    },
+    //   return obj;
+    // },
 
     // 取得產品單價
-    getUnitPrice(params) {
+    getUnitPrice(/*params*/) {
       const vm = this;
-      let url = `${process.env.VUE_APP_APIPATH}/Inventory/Product/GetProductUnitPrice`;
-      vm.$store.commit("ISLOADING", true);
-      vm.$http
-        .post(url, params)
-        .then((res) => {
-          vm.UnitPrice = res.data.Data;
-
-          if (vm.UnitPrice.length > 0) {
-            vm.exchangeRows.forEach((product) => {
-              vm.UnitPrice.forEach((price) => {
-                if (price.ItemNo === product.ItemNo.trim()) {
-                  product.UnitPrice = price.UnitPrice;
-                }
-              });
-            });
-          } else {
-            vm.exchangeRows.forEach((product) => {
-              product.UnitPrice = 0;
-            });
-          }
-
-          setTimeout(() => {
-            vm.getAllReturnQTY();
-            vm.getAllExchangeQTY();
-            vm.$store.commit("ISLOADING", false);
-          }, 0);
-        })
-        .catch(() => {
-          vm.$store.commit("ISLOADING", false);
-        });
+      vm.exchangeRows.forEach((product) => {
+        product.UnitPrice = 10;
+      });
+      setTimeout(() => {
+        vm.getAllReturnQTY();
+        vm.getAllExchangeQTY();
+      }, 0);
     },
+    // let url = `${process.env.VUE_APP_APIPATH}/Inventory/Product/GetProductUnitPrice`;
+
+    // vm.$store.commit("ISLOADING", true);
+    // vm.$http
+    //   .post(url, /*params*/)
+    //   .then((res) => {
+    //     vm.UnitPrice = res.data.Data;
+
+    //     if (vm.UnitPrice.length > 0) {
+    //       vm.exchangeRows.forEach((product) => {
+    //         vm.UnitPrice.forEach((price) => {
+    //           if (price.ItemNo === product.ItemNo.trim()) {
+    //             product.UnitPrice = price.UnitPrice;
+    //           }
+    //         });
+    //       });
+    //     } else {
+    //       vm.exchangeRows.forEach((product) => {
+    //         product.UnitPrice = 0;
+    //       });
+    //     }
+
+    //     setTimeout(() => {
+    //       vm.getAllReturnQTY();
+    //       vm.getAllExchangeQTY();
+    //       vm.$store.commit("ISLOADING", false);
+    //     }, 0);
+    //   })
+    //   .catch(() => {
+    //     vm.$store.commit("ISLOADING", false);
+    //   });
   },
   watch: {
     "otherData2.PaymentTerms"(n) {
       const vm = this;
       if (n) {
-        vm.getUnitPrice(vm.getUnitFormat(vm.exchangeRows));
+        vm.getUnitPrice(/*vm.getUnitFormat(vm.exchangeRows)*/);
       }
     },
     returnRows(n) {
@@ -649,37 +730,40 @@ export default {
 
     vm.returnRows = vm.$route.params.confirmProduct || vm.localSureProduct; // 前頁面下單 Modal 帶入的商品
 
-    vm.axios.all([getReturnReason(), getPayTerm()]).then(
-      vm.axios.spread((allReturnReason, allPayTerm) => {
-        if (
-          allReturnReason.data.Status >= 200 &&
-          allReturnReason.data.Status < 300
-        ) {
-          vm.allReturnReason = allReturnReason.data.Data;
-          if (allReturnReason.data.ErrorMessage) {
-            vm.$notify({
-              title: "錯誤",
-              message: allReturnReason.data.ErrorMessage,
-              type: "error",
-              duration: 3500,
-            });
-          }
-        }
+    vm.allReturnReason = returnReason.Data;
+    vm.allPayTerm = payTerm.Data;
 
-        if (allPayTerm.data.Status >= 200 && allPayTerm.data.Status < 300) {
-          vm.allPayTerm = allPayTerm.data.Data;
-          if (allReturnReason.data.ErrorMessage) {
-            vm.$notify({
-              title: "錯誤",
-              message: allPayTerm.data.ErrorMessage,
-              type: "error",
-              duration: 3500,
-            });
-          }
-        }
-        vm.$store.commit("ISLOADING", false);
-      })
-    );
+    // vm.axios.all([getReturnReason(), getPayTerm()]).then(
+    //   vm.axios.spread((allReturnReason, allPayTerm) => {
+    //     if (
+    //       allReturnReason.data.Status >= 200 &&
+    //       allReturnReason.data.Status < 300
+    //     ) {
+    //       vm.allReturnReason = allReturnReason.data.Data;
+    //       if (allReturnReason.data.ErrorMessage) {
+    //         vm.$notify({
+    //           title: "錯誤",
+    //           message: allReturnReason.data.ErrorMessage,
+    //           type: "error",
+    //           duration: 3500,
+    //         });
+    //       }
+    //     }
+
+    //     if (allPayTerm.data.Status >= 200 && allPayTerm.data.Status < 300) {
+    //       vm.allPayTerm = allPayTerm.data.Data;
+    //       if (allReturnReason.data.ErrorMessage) {
+    //         vm.$notify({
+    //           title: "錯誤",
+    //           message: allPayTerm.data.ErrorMessage,
+    //           type: "error",
+    //           duration: 3500,
+    //         });
+    //       }
+    //     }
+    //     vm.$store.commit("ISLOADING", false);
+    //   })
+    // );
 
     // 一開始進來時的退貨總品項數量調整
     vm.allReturnQTY = vm.returnRows.length;

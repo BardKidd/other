@@ -137,11 +137,16 @@
 </template>
 <script>
 /* global $ */
-import { getReturnReason, getPayTerm } from "@/commonAPI/api.js";
+// import { getReturnReason, getPayTerm } from "@/commonAPI/api.js";
 import { commonFunction } from "@/mixins/commonFunction.js";
 import Pagination from "@/components/CommonComponent/Pagination.vue";
 import ReturnModal from "@/views/ReturnManagement/SearchReturnOrder/ReadonlyReturnWork.vue";
 import ExchangeModal from "@/views/ReturnManagement/SearchReturnOrder/ReadonlyExchangeJob.vue";
+
+// 未串接 API 故引入 JSON 檔。
+import searchData from "@/data/Customers/SearchChturnOrder.json";
+import returnReason from "@/data/Other/ReturnReason.json";
+import payTerm from "@/data/Other/PayTerm.json";
 
 export default {
   name: "SearchReturnOrder",
@@ -168,63 +173,82 @@ export default {
   methods: {
     searchData() {
       const vm = this;
-      vm.searchBox.from = vm.searchBox.from ? vm.searchBox.from : "";
-      vm.searchBox.to = vm.searchBox.to ? vm.searchBox.to : "";
-      const url = `${process.env.VUE_APP_APIPATH}/Inventory/Return/GetReturns?salesId=${vm.saleInfo.EmpID}&status=${vm.searchBox.status}&from=${vm.searchBox.from}&to=${vm.searchBox.to}&keyword=${vm.searchBox.keyword}`;
+      vm.rows = searchData.Data;
+      vm.rows.forEach((item) => {
+        switch (item.Status) {
+          case "SignIn":
+            item.Status = "簽核中";
+            break;
+          case "Reject":
+            item.Status = "否決";
+            break;
+          case "Cancel":
+            item.Status = "作廢";
+            break;
+          case "Draft":
+            item.Status = "草稿";
+            break;
+        }
 
-      vm.$store.commit("ISLOADING", true);
-      return vm.$http
-        .get(url)
-        .then((res) => {
-          if (res.data.Status >= 200 && res.data.Status < 300) {
-            if (res.data.Data.length === 0) {
-              vm.$notify({
-                title: "提示",
-                message: "未搜尋到任何退換貨單",
-                type: "warning",
-                duration: 3500,
-              });
-            }
-            vm.rows = res.data.Data;
-            vm.rows.forEach((item) => {
-              switch (item.Status) {
-                case "SignIn":
-                  item.Status = "簽核中";
-                  break;
-                case "Reject":
-                  item.Status = "否決";
-                  break;
-                case "Cancel":
-                  item.Status = "作廢";
-                  break;
-                case "Draft":
-                  item.Status = "草稿";
-                  break;
-              }
+        item.ReturnDate = item.ReturnDate.split("T")[0];
+      });
+      // vm.searchBox.from = vm.searchBox.from ? vm.searchBox.from : "";
+      // vm.searchBox.to = vm.searchBox.to ? vm.searchBox.to : "";
+      // const url = `${process.env.VUE_APP_APIPATH}/Inventory/Return/GetReturns?salesId=${vm.saleInfo.EmpID}&status=${vm.searchBox.status}&from=${vm.searchBox.from}&to=${vm.searchBox.to}&keyword=${vm.searchBox.keyword}`;
 
-              item.ReturnDate = item.ReturnDate.split("T")[0];
-            });
-          } else {
-            vm.$notify({
-              title: "錯誤",
-              message: res.data.ErrorMessage,
-              type: "error",
-              duration: 3500,
-            });
-          }
-          vm.$store.commit("ISLOADING", false);
-        })
-        .catch((error) => {
-          vm.$store.commit("ISLOADING", false);
-          if (error.response.status === 400) {
-            vm.$notify({
-              title: "錯誤",
-              message: Object.values(error.response.data.errors),
-              type: "error",
-              duration: 3500,
-            });
-          }
-        });
+      // vm.$store.commit("ISLOADING", true);
+      // return vm.$http
+      //   .get(url)
+      //   .then((res) => {
+      //     if (res.data.Status >= 200 && res.data.Status < 300) {
+      //       if (res.data.Data.length === 0) {
+      //         vm.$notify({
+      //           title: "提示",
+      //           message: "未搜尋到任何退換貨單",
+      //           type: "warning",
+      //           duration: 3500,
+      //         });
+      //       }
+      //       vm.rows = res.data.Data;
+      //       vm.rows.forEach((item) => {
+      //         switch (item.Status) {
+      //           case "SignIn":
+      //             item.Status = "簽核中";
+      //             break;
+      //           case "Reject":
+      //             item.Status = "否決";
+      //             break;
+      //           case "Cancel":
+      //             item.Status = "作廢";
+      //             break;
+      //           case "Draft":
+      //             item.Status = "草稿";
+      //             break;
+      //         }
+
+      //         item.ReturnDate = item.ReturnDate.split("T")[0];
+      //       });
+      //     } else {
+      //       vm.$notify({
+      //         title: "錯誤",
+      //         message: res.data.ErrorMessage,
+      //         type: "error",
+      //         duration: 3500,
+      //       });
+      //     }
+      //     vm.$store.commit("ISLOADING", false);
+      //   })
+      //   .catch((error) => {
+      //     vm.$store.commit("ISLOADING", false);
+      //     if (error.response.status === 400) {
+      //       vm.$notify({
+      //         title: "錯誤",
+      //         message: Object.values(error.response.data.errors),
+      //         type: "error",
+      //         duration: 3500,
+      //       });
+      //     }
+      //   });
     },
     openModal(item, type) {
       const vm = this;
@@ -256,15 +280,20 @@ export default {
     vm.$store.commit("HEADER", "退換貨單查詢");
     vm.$store.commit("ISWELCOME", true);
     vm.$store.commit("ISGOBACK", false);
-    vm.$store.commit("ISLOADING", true);
-    vm.axios.all([getReturnReason(), getPayTerm(), vm.searchData()]).then(
-      vm.axios.spread((allReturnReason, allPayTerm) => {
-        vm.allReturnReason = allReturnReason.data.Data;
-        vm.allPayTerm = allPayTerm.data.Data;
 
-        vm.$store.commit("ISLOADING", false);
-      })
-    );
+    vm.allReturnReason = returnReason.Data;
+    vm.allPayTerm = payTerm.Data;
+    vm.searchData();
+
+    // vm.$store.commit("ISLOADING", true);
+    // vm.axios.all([getReturnReason(), getPayTerm(), vm.searchData()]).then(
+    //   vm.axios.spread((allReturnReason, allPayTerm) => {
+    //     vm.allReturnReason = allReturnReason.data.Data;
+    //     vm.allPayTerm = allPayTerm.data.Data;
+
+    //     vm.$store.commit("ISLOADING", false);
+    //   })
+    // );
 
     vm.searchBox = {
       status: "",

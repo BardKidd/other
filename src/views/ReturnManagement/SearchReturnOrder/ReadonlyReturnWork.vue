@@ -8,9 +8,7 @@
     aria-hidden="true"
   >
     <div
-      class="
-        modal-dialog modal-dialog-scrollable modal-lg modal-dialog-centered
-      "
+      class="modal-dialog modal-dialog-scrollable modal-lg modal-dialog-centered"
     >
       <section class="modal-content">
         <div class="modal-body p-0 overflow-hidden">
@@ -44,13 +42,7 @@
                   </div>
                   <div class="table-wrap">
                     <table
-                      class="
-                        common-datatable
-                        datatable
-                        stripe
-                        order-column
-                        w-100
-                      "
+                      class="common-datatable datatable stripe order-column w-100"
                     >
                       <thead>
                         <tr>
@@ -75,7 +67,7 @@
                       </tbody>
                     </table>
                   </div>
-                  <div class="row">
+                  <div class="row mt-3">
                     <div class="col-sm-12 col-md-6">
                       <div class="field">
                         <div class="field-name">退貨總數量</div>

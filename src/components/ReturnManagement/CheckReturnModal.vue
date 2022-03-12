@@ -12,7 +12,7 @@
       class="modal-dialog modal-dialog-scrollable modal-lg modal-dialog-centered"
     >
       <!--  v-slot="{ handleSubmit }" -->
-      <VO tag="section" class="modal-content">
+      <VO tag="section" class="modal-content" v-slot="{ handleSubmit }">
         <div class="modal-body p-0 overflow-hidden">
           <div class="order-detail row">
             <!-- 左區塊，客戶資訊 -->
@@ -63,7 +63,7 @@
                 <!-- v-if="isReadOnly" -->
                 <button
                   class="btn btn_primary"
-                  @click="clickSave"
+                  @click="handleSubmit(clickSave)"
                   type="button"
                 >
                   儲存
