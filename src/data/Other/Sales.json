@@ -5,182 +5,182 @@
     {
       "DeptCode": "23100",
       "EmpID": "H1030021",
-      "EmpCName": "海濤",
+      "EmpCName": "海XX",
       "ERP_SalesCode": "SHe0002",
       "Sales_Zone": "H_藥局組網"
     },
     {
       "DeptCode": "23110",
       "EmpID": "H1080090",
-      "EmpCName": "蔡翊緹",
+      "EmpCName": "蔡XX",
       "ERP_SalesCode": "SHe0003",
       "Sales_Zone": "H_北A1區"
     },
     {
       "DeptCode": "23110",
       "EmpID": "H1090157",
-      "EmpCName": "陳緯",
+      "EmpCName": "陳XX",
       "ERP_SalesCode": "SHe0004",
       "Sales_Zone": "H_北A2區"
     },
     {
       "DeptCode": "23110",
       "EmpID": "H1050035",
-      "EmpCName": "王佳榮",
+      "EmpCName": "王XX",
       "ERP_SalesCode": "SHe0005",
       "Sales_Zone": "H_北A3區"
     },
     {
       "DeptCode": "23120",
       "EmpID": "H1070057",
-      "EmpCName": "林賢明",
+      "EmpCName": "林XX",
       "ERP_SalesCode": "SHe0006",
       "Sales_Zone": "H_北B1區"
     },
     {
       "DeptCode": "23110",
       "EmpID": "H1050033",
-      "EmpCName": "高瑋鍹",
+      "EmpCName": "高XX",
       "ERP_SalesCode": "SHe0007",
       "Sales_Zone": "H_北B2區"
     },
     {
       "DeptCode": "23120",
       "EmpID": "H1100208",
-      "EmpCName": "游瑜惠",
+      "EmpCName": "游XX",
       "ERP_SalesCode": "SHe0008",
       "Sales_Zone": "H_北B3區"
     },
     {
       "DeptCode": "23130",
       "EmpID": "H1100186",
-      "EmpCName": "李玟瑩",
+      "EmpCName": "李XX",
       "ERP_SalesCode": "SHe0009",
       "Sales_Zone": "H_中1區"
     },
     {
       "DeptCode": "23130",
       "EmpID": "H1100202",
-      "EmpCName": "林毅昇",
+      "EmpCName": "林XX",
       "ERP_SalesCode": "SHe0010",
       "Sales_Zone": "H_中2區"
     },
     {
       "DeptCode": "23130",
       "EmpID": "H1090160",
-      "EmpCName": "施柰睿",
+      "EmpCName": "施XX",
       "ERP_SalesCode": "SHe0011",
       "Sales_Zone": "H_中3區"
     },
     {
       "DeptCode": "23140",
       "EmpID": "H1100209",
-      "EmpCName": "李紹銘",
+      "EmpCName": "李XX",
       "ERP_SalesCode": "SHe0012",
       "Sales_Zone": "H_南1區"
     },
     {
       "DeptCode": "23140",
       "EmpID": "H1090167",
-      "EmpCName": "郭千鳳",
+      "EmpCName": "郭XX",
       "ERP_SalesCode": "SHe0013",
       "Sales_Zone": "H_南2區"
     },
     {
       "DeptCode": "23140",
       "EmpID": "H1080123",
-      "EmpCName": "陳玉婕",
+      "EmpCName": "陳XX",
       "ERP_SalesCode": "SHe0014",
       "Sales_Zone": "H_南3區"
     },
     {
       "DeptCode": "23200",
       "EmpID": "H1060052",
-      "EmpCName": "陳國瑋",
+      "EmpCName": "陳XX",
       "ERP_SalesCode": "SHe0015",
       "Sales_Zone": "H_醫A區"
     },
     {
       "DeptCode": "23200",
       "EmpID": "H1090159",
-      "EmpCName": "陳翊函",
+      "EmpCName": "陳XX",
       "ERP_SalesCode": "SHe0016",
       "Sales_Zone": "H_醫B區"
     },
     {
       "DeptCode": "23200",
       "EmpID": "H1030022",
-      "EmpCName": "張哲豪",
+      "EmpCName": "張XX",
       "ERP_SalesCode": "SHe0017",
       "Sales_Zone": "H_醫C區"
     },
     {
       "DeptCode": "23200",
       "EmpID": "H1080096",
-      "EmpCName": "黃煥龍",
+      "EmpCName": "黃XX",
       "ERP_SalesCode": "SHe0018",
       "Sales_Zone": "H_醫D區"
     },
     {
       "DeptCode": "24210",
       "EmpID": "H1100195",
-      "EmpCName": "鄭廉樺",
+      "EmpCName": "鄭XX",
       "ERP_SalesCode": "SPe0019",
       "Sales_Zone": "P_北1區"
     },
     {
       "DeptCode": "24210",
       "EmpID": "H1070065",
-      "EmpCName": "李宗翰",
+      "EmpCName": "李XX",
       "ERP_SalesCode": "SPe0020",
       "Sales_Zone": "P_北2區"
     },
     {
       "DeptCode": "24210",
       "EmpID": "H1090170",
-      "EmpCName": "許慧敏",
+      "EmpCName": "許XX",
       "ERP_SalesCode": "SPe0021",
       "Sales_Zone": "P_北3區"
     },
     {
       "DeptCode": "24220",
       "EmpID": "H1090177",
-      "EmpCName": "林虹君",
+      "EmpCName": "林XX",
       "ERP_SalesCode": "SPe0022",
       "Sales_Zone": "P_中1區"
     },
     {
       "DeptCode": "24220",
       "EmpID": "H1060049",
-      "EmpCName": "林宏名",
+      "EmpCName": "林XX",
       "ERP_SalesCode": "SPe0023",
       "Sales_Zone": "P_南1區"
     },
     {
       "DeptCode": "24220",
       "EmpID": "H1060048",
-      "EmpCName": "冉瑞玲",
+      "EmpCName": "冉XX",
       "ERP_SalesCode": "SPe0024",
       "Sales_Zone": "P_南2區"
     },
     {
       "DeptCode": "24200",
       "EmpID": "H1050040",
-      "EmpCName": "林雅婷",
+      "EmpCName": "林XX",
       "ERP_SalesCode": "SPe0025",
       "Sales_Zone": "P_國內組"
     },
     {
       "DeptCode": "24100",
       "EmpID": "H1100190",
-      "EmpCName": "曹力",
+      "EmpCName": "曹XX",
       "ERP_SalesCode": "SPe0026",
       "Sales_Zone": "P_海外組"
     },
     {
       "DeptCode": "23000",
       "EmpID": "H1010015",
-      "EmpCName": "曾少斌",
+      "EmpCName": "曾XX",
       "ERP_SalesCode": "SHe0001",
       "Sales_Zone": "H_藥局組連"
     }
