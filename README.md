@@ -1,3 +1,5 @@
+# 後台管理系統專案
+[網站連結](https://bardkidd.github.io/other/#/admin/mainstoreorder)
 ## 結構說明
 
 - commonAPI 資料夾: 放置常呼叫的 API 函式，避免重複撰寫相同程式碼。
@@ -13,7 +15,7 @@
 - printConsole 資料夾: 避免 console.log 只顯示最新資料，所以直接在全域引入該函式，將資料進行深層複製。有避免傳入參數為 undefined、null 的問題。
 - store 資料夾: Vuex 等全域資料夾，有些有早期總店訂購的部分功能，內有註解。
 - views 資料夾: 畫面元件。
-
+---
 ### 各功能第一頁畫面
 
 除了訂單查詢和客戶資訊外，都是選擇客戶(e.g. 總店訂購)
