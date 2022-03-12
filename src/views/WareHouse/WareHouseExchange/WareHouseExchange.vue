@@ -84,6 +84,10 @@ import Pagination from "@/components/CommonComponent/Pagination.vue";
 import Table from "@/views/WareHouse/PickUpWork/PickUpModalTemplate.vue";
 import { mapState, mapGetters } from "vuex";
 
+// 未串接 API，所以引入 JSON 檔。
+import customersData from "@/data/Customers/WareHouseExchange.json";
+import productsData from "@/data/Product/PickUpProducts.json";
+
 export default {
   name: "WareHouseExchange",
   mixins: [commonFunction, AfterSaleProcessing],
@@ -100,13 +104,19 @@ export default {
     };
   },
   methods: {
-    searchCustomer(searchBox) {
+    searchCustomer(/*searchBox*/) {
       const vm = this;
-      searchBox = {
-        ...searchBox,
+      // searchBox = {
+      //   ...searchBox,
+      //   purchaseType: "",
+      //   IsDeactivated: "",
+      // };
+      const searchBox = {
+        customersData,
         purchaseType: "",
         IsDeactivated: "",
       };
+
       vm.$store.dispatch("getCustomer", searchBox);
     },
     openModal(item) {
@@ -134,42 +144,56 @@ export default {
     // 搜尋出來的產品資訊
     searchData() {
       const vm = this;
-      let after = vm.$refs.AfterSaleModal.searchBox;
 
-      // 因為系列有分類的內容，所以只能保持 object
-      let productSeries = after.productSeries ? after.productSeries.Code : "";
-      const url = `${process.env.VUE_APP_APIPATH}/Inventory/Warehouse/GetPickableProducts?customerId=${vm.customer.CustomerID}&productSeries=${productSeries}&productClass=${after.productType}&keyword=${after.keyword}`;
-
-      vm.$store.commit("ISLOADING", true);
-      vm.$http
-        .get(url)
-        .then((res) => {
-          if (!res.data.ErrorMessage) {
-            vm.tempProduct = res.data.Data;
-            vm.tempProduct = vm.tempProduct.filter((item) => {
-              return item.PickableQuantity > 0;
-            });
-            if (vm.tempProduct.length === 0) {
-              vm.$notify({
-                title: "提示",
-                message: "未搜尋到任何商品",
-                type: "warning",
-                duration: 3500,
-              });
-            }
-          } else {
-            vm.$notify({
-              title: "錯誤",
-              message: res.data.ErrorMessage,
-              type: "error",
-              duration: 3500,
-            });
-          }
-          vm.$store.commit("ISLOADING", false);
-        })
-        .catch(() => {
-          vm.$store.commit("ISLOADING", false);
+      vm.tempProduct = productsData.Data;
+      vm.tempProduct = vm.tempProduct.filter((item) => {
+        return item.PickableQuantity > 0;
+      });
+      if (vm.tempProduct.length === 0) {
+        vm.$notify({
+          title: "提示",
+          message: "未搜尋到任何商品",
+          type: "warning",
+          duration: 3500,
         });
+      }
+
+      // let after = vm.$refs.AfterSaleModal.searchBox;
+
+      // // 因為系列有分類的內容，所以只能保持 object
+      // let productSeries = after.productSeries ? after.productSeries.Code : "";
+      // const url = `${process.env.VUE_APP_APIPATH}/Inventory/Warehouse/GetPickableProducts?customerId=${vm.customer.CustomerID}&productSeries=${productSeries}&productClass=${after.productType}&keyword=${after.keyword}`;
+
+      // vm.$store.commit("ISLOADING", true);
+      // vm.$http
+      //   .get(url)
+      //   .then((res) => {
+      //     if (!res.data.ErrorMessage) {
+      //       vm.tempProduct = res.data.Data;
+      //       vm.tempProduct = vm.tempProduct.filter((item) => {
+      //         return item.PickableQuantity > 0;
+      //       });
+      //       if (vm.tempProduct.length === 0) {
+      //         vm.$notify({
+      //           title: "提示",
+      //           message: "未搜尋到任何商品",
+      //           type: "warning",
+      //           duration: 3500,
+      //         });
+      //       }
+      //     } else {
+      //       vm.$notify({
+      //         title: "錯誤",
+      //         message: res.data.ErrorMessage,
+      //         type: "error",
+      //         duration: 3500,
+      //       });
+      //     }
+      //     vm.$store.commit("ISLOADING", false);
+      //   })
+      //   .catch(() => {
+      //     vm.$store.commit("ISLOADING", false);
+      //   });
     },
 
     // 關閉 Modal 時會順便清除資料。

@@ -129,11 +129,16 @@
 </template>
 <script>
 /* global $ */
-import { getReturnReason, getPayTerm } from "@/commonAPI/api.js";
+// import { getReturnReason, getPayTerm } from "@/commonAPI/api.js";
 import { commonFunction } from "@/mixins/commonFunction.js";
 import Pagination from "@/components/CommonComponent/Pagination.vue";
 import PickupModal from "./ReadonlyPickup.vue";
 import ExchangeModal from "./ReadonlyExchangeJob.vue";
+
+// 未串接 API 故引入 JSON 檔。
+import searchData from "@/data/Customers/SearchWareHouse.json";
+import returnReason from "@/data/Other/ReturnReason.json";
+import payTerm from "@/data/Other/PayTerm.json";
 
 export default {
   name: "SearchWareHouse",
@@ -161,61 +166,80 @@ export default {
   methods: {
     searchData() {
       const vm = this;
-      vm.searchBox.from = vm.searchBox.from ? vm.searchBox.from : "";
-      vm.searchBox.to = vm.searchBox.to ? vm.searchBox.to : "";
-      const url = `${process.env.VUE_APP_APIPATH}/Inventory/Warehouse/GetWarehousePickup?status=${vm.searchBox.status}&salesId=${vm.saleInfo.EmpID}&from=${vm.searchBox.from}&to=${vm.searchBox.to}&keyword=${vm.searchBox.keyword}`;
-      vm.$store.commit("ISLOADING", true);
-      vm.$http
-        .get(url)
-        .then((res) => {
-          if (!res.data.ErrorMessage) {
-            if (res.data.Data.length === 0) {
-              vm.$notify({
-                title: "提示",
-                message: "未搜尋到任何寄貨取換貨單",
-                type: "warning",
-                duration: 3500,
-              });
-            }
-            vm.rows = res.data.Data;
-            vm.rows.forEach((item) => {
-              switch (item.Status) {
-                case "SignIn":
-                  item.Status = "簽核中";
-                  break;
-                case "Reject":
-                  item.Status = "否決";
-                  break;
-                case "Cancel":
-                  item.Status = "作廢";
-                  break;
-                case "Draft":
-                  item.Status = "草稿";
-                  break;
-              }
-              item.CreateTime = item.CreateTime.split("T")[0];
-            });
-          } else {
-            vm.$notify({
-              title: "錯誤",
-              message: res.data.ErrorMessage,
-              type: "error",
-              duration: 3500,
-            });
-          }
-          vm.$store.commit("ISLOADING", false);
-        })
-        .catch((error) => {
-          vm.$store.commit("ISLOADING", false);
-          if (error.response.status === 400) {
-            vm.$notify({
-              title: "錯誤",
-              message: error.response.data,
-              type: "error",
-              duration: 3500,
-            });
-          }
-        });
+      vm.rows = searchData.Data;
+      vm.rows.forEach((item) => {
+        switch (item.Status) {
+          case "SignIn":
+            item.Status = "簽核中";
+            break;
+          case "Reject":
+            item.Status = "否決";
+            break;
+          case "Cancel":
+            item.Status = "作廢";
+            break;
+          case "Draft":
+            item.Status = "草稿";
+            break;
+        }
+        item.CreateTime = item.CreateTime.split("T")[0];
+      });
+
+      // vm.searchBox.from = vm.searchBox.from ? vm.searchBox.from : "";
+      // vm.searchBox.to = vm.searchBox.to ? vm.searchBox.to : "";
+      // const url = `${process.env.VUE_APP_APIPATH}/Inventory/Warehouse/GetWarehousePickup?status=${vm.searchBox.status}&salesId=${vm.saleInfo.EmpID}&from=${vm.searchBox.from}&to=${vm.searchBox.to}&keyword=${vm.searchBox.keyword}`;
+      // vm.$store.commit("ISLOADING", true);
+      // vm.$http
+      //   .get(url)
+      //   .then((res) => {
+      //     if (!res.data.ErrorMessage) {
+      //       if (res.data.Data.length === 0) {
+      //         vm.$notify({
+      //           title: "提示",
+      //           message: "未搜尋到任何寄貨取換貨單",
+      //           type: "warning",
+      //           duration: 3500,
+      //         });
+      //       }
+      //       vm.rows = res.data.Data;
+      //       vm.rows.forEach((item) => {
+      //         switch (item.Status) {
+      //           case "SignIn":
+      //             item.Status = "簽核中";
+      //             break;
+      //           case "Reject":
+      //             item.Status = "否決";
+      //             break;
+      //           case "Cancel":
+      //             item.Status = "作廢";
+      //             break;
+      //           case "Draft":
+      //             item.Status = "草稿";
+      //             break;
+      //         }
+      //         item.CreateTime = item.CreateTime.split("T")[0];
+      //       });
+      //     } else {
+      //       vm.$notify({
+      //         title: "錯誤",
+      //         message: res.data.ErrorMessage,
+      //         type: "error",
+      //         duration: 3500,
+      //       });
+      //     }
+      //     vm.$store.commit("ISLOADING", false);
+      //   })
+      //   .catch((error) => {
+      //     vm.$store.commit("ISLOADING", false);
+      //     if (error.response.status === 400) {
+      //       vm.$notify({
+      //         title: "錯誤",
+      //         message: error.response.data,
+      //         type: "error",
+      //         duration: 3500,
+      //       });
+      //     }
+      //   });
     },
     openModal(item, type) {
       const vm = this;
@@ -225,12 +249,11 @@ export default {
       if (type === "pickup") {
         $("#readonlypickupmodal").modal("show");
       } else if (type === "exchange") {
-        vm.orderDetail.WarehouseExchange.ExchangeReasonCode =
-          vm.allReturnReason.find(
-            (reason) =>
-              reason.ReasonCode ===
-              vm.orderDetail.WarehouseExchange.ExchangeReasonCode
-          )?.ReasonDesc;
+        vm.orderDetail.WarehouseExchange.ExchangeReasonCode = vm.allReturnReason.find(
+          (reason) =>
+            reason.ReasonCode ===
+            vm.orderDetail.WarehouseExchange.ExchangeReasonCode
+        )?.ReasonDesc;
         vm.orderDetail.WarehouseExchange.PaymentTermsCode = vm.allPayTerm.find(
           (pay) =>
             pay.NF002 === vm.orderDetail.WarehouseExchange.PaymentTermsCode
@@ -259,15 +282,20 @@ export default {
       to: vm.today,
       keyword: "",
     };
-    vm.$store.commit("ISLOADING", true);
-    vm.axios.all([getReturnReason(), getPayTerm(), vm.searchData()]).then(
-      vm.axios.spread((allReturnReason, allPayTerm) => {
-        vm.allReturnReason = allReturnReason.data.Data;
-        vm.allPayTerm = allPayTerm.data.Data;
 
-        vm.$store.commit("ISLOADING", false);
-      })
-    );
+    vm.allReturnReason = returnReason.data.Data;
+    vm.allPayTerm = payTerm.data.Data;
+
+    // vm.$store.commit("ISLOADING", true);
+
+    // vm.axios.all([getReturnReason(), getPayTerm(), vm.searchData()]).then(
+    //   vm.axios.spread((allReturnReason, allPayTerm) => {
+    //     vm.allReturnReason = allReturnReason.data.Data;
+    //     vm.allPayTerm = allPayTerm.data.Data;
+
+    //     vm.$store.commit("ISLOADING", false);
+    //   })
+    // );
 
     // 清空表單資料。
     vm.$store.commit("CLOSEALLORDERDATA");
